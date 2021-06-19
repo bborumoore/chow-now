@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
@@ -9,18 +10,27 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
         <Switch>
-          <Route exact path={["/", "/books"]}>
-            <Books />
+          <Route exact path={["/:id", "/dashboard:id"]}>
+            <Dashboard />
           </Route>
-          <Route exact path="/books/:id">
-            <Detail />
+          <Route exact path="/newrun">
+            <NewRun />
+          </Route>
+          <Route exact path="/run:id">
+            <Run />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/signup">
+            <SignUp />
           </Route>
           <Route>
             <NoMatch />
           </Route>
         </Switch>
+        <Nav />
       </div>
     </Router>
   );
