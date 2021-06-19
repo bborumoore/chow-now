@@ -2,6 +2,10 @@ import React from "react";
 import Jumbotron from "../components/Jumbotron";
 
 function Run() {
+
+    // Grab id passed in url
+    const {id} = useParams();
+
     return (
         <div>
             <Jumbotron>
