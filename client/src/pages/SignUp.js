@@ -24,7 +24,7 @@ function SignUp() {
     return (
         <div>
             <Jumbotron>
-                <h1>Login</h1>
+                <h1>Sign Up</h1>
             </Jumbotron>
             <form>
                 <Input 
