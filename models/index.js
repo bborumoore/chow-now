@@ -1,3 +1,7 @@
 module.exports = {
-  Book: require("./book")
+  Group: require("./group"),
+  Order: require("./order"),
+  OrderItem: require("./orderItem"),
+  Run: require("./run"),
+  User: require("./user")
 };
