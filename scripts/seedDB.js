@@ -32,6 +32,18 @@ const chowSeed = [
     },
     runner: [userID],
     members: [userID]
+  },
+
+  {
+    run: "Burger King",
+    order: "Number 3 Meal",
+    orderItems: {
+      foodName: "10 Piece Nuggets with fries and Dr. Pepper",
+      foodPrice: 9.13,
+      foodNotes: "Add bbq sauce and ranch"
+    },
+    runner: [userID],
+    members: [userID]
   }
   // {
   //   title: "Lord of the Flies",
