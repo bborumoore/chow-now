@@ -15,7 +15,7 @@ router
 
 // Matches with "/api/users/:email"
 router
-.route("/:email")
+.route("/email/:email")
 .get(usersController.findByEmail)
 .put(usersController.update)
 .delete(usersController.remove);
