@@ -13,7 +13,11 @@ const orderSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: "orderItems"
         }
-    ]
+    ],
+    orderCreated: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 const Order = mongoose.model("Order", orderSchema);

@@ -24,7 +24,8 @@
     "bootstrap": "^5.0.1",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.12.13"
+    "mongoose": "^5.12.13",
+    "mongoose-currency": "^0.2.0"
   },
   "repository": {
     "type": "git",

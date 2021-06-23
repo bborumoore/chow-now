@@ -14,6 +14,10 @@ const orderItemSchema = new Schema({
   },
   orderItemNotes: {
       type: String
+  },
+  orderItemCreated: {
+    type: Date, 
+    default: Date.now
   }
 });
 

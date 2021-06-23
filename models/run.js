@@ -12,14 +12,18 @@ const runSchema = new Schema({
             ref: "Order"
         }
     ],
-    dateCreated: {
+    runCreated: {
         type: Date, 
         default: Date.now
     },
     status: {
         type: String,
         enum: ['started','ordered', 'pickedUp', 'delivered', 'completed'],
-        required : true 
+        default : 'started' 
+    },
+    runName: {
+        type: String,
+        required : true
     }
 });
 
