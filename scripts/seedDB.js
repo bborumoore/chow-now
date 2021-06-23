@@ -129,9 +129,65 @@ db.Book
   .then(() => db.Book.collection.insertMany(bookSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
+<<<<<<< Updated upstream
     process.exit(0);
   })
   .catch(err => {
     console.error(err);
     process.exit(1);
   });
+=======
+    console.log(data);
+    db.OrderItem
+      .deleteMany({})
+      .then(() => db.OrderItem.collection.insertMany(orderItemsSeed))
+      .then(data2 => {
+        console.log(data2.result.n + " records inserted!");
+        console.log(data2);
+        db.Order
+          .deleteMany({})
+          .then(() => db.Order.collection.insertMany([{
+            users: [
+              data.insertedIds["0"]
+            ],
+            orderItems: [
+              data2.insertedIds["0", "1", "2", "3"]
+            ]
+          }]))
+          .then(data3 => {
+            console.log(data3.result.n + " records inserted!");
+            console.log(data3);
+            db.Run
+              .deleteMany({})
+              .then(() => db.Run.collection.insertMany([{
+                runner: data.insertedIds["0"],
+                orders: [data3.insertedIds["0"]],
+                status: "started"
+              }]))
+              .then(data4 => {
+                console.log(data4.result.n + " records inserted!");
+                console.log(data4);
+              });
+            db.Group
+              .deleteMany({})
+              .then(() => db.Group.collection.insertMany([{
+                admin: data.insertedIds["0"],
+                users: [data.insertedIds["1"]],
+                groupName: "test group"
+              }]))
+              .then(data5 => {
+                console.log(data5.result.n + " records inserted!");
+                console.log(data5);
+              });
+            });
+          });
+          
+          // process.exit(0);
+          
+    })
+    .catch(err => {
+      console.error(err);
+      process.exit(1);
+    });
+    
+>>>>>>> Stashed changes
