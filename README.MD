@@ -5,7 +5,7 @@
 [Chow Now Website]()
 ---
 ### Table of Contents
-- [Descritption](#description)
+- [Description](#description)
 - [How To Use](#how-to-use)
 - [Technologies](#technologies)
 - [Author Info](#author-info)
