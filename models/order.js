@@ -17,6 +17,10 @@ const orderSchema = new Schema({
     orderCreated: {
         type: Date,
         default: Date.now
+    },
+    timesOrdered: {
+        type: Number,
+        default: 0
     }
 });
 
