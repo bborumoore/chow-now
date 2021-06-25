@@ -8,8 +8,15 @@ const runSchema = new Schema({
     },
     orders: [
         {
-            type: Schema.Types.ObjectId,
-            ref: "Order"
+        
+            orderPaid: {
+                type: Boolean,
+                default: false
+            },
+            objectID: {
+                type: Schema.Types.ObjectId,
+                ref: "Order"
+            }
         }
     ],
     runCreated: {
