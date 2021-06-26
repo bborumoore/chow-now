@@ -4,7 +4,7 @@ import "./style.css";
 
 function RestaurantBox(props) {
   return (
-    <div>
+    <div className="restaurant-container">
         <Link to={"/run/:"+props.run_id}>Run #{props.run_id}</Link>
         <h1>{props.restaurant_name}</h1>
         <h3>{props.address}</h3>
