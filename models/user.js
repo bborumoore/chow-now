@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require('bcrypt');
 
 const Schema = mongoose.Schema;
 
@@ -33,8 +34,54 @@ const UserSchema = new Schema({
   broadcastNote: {
       type: String,
       validate: [({ length }) => length <= 20, "Note can't be more than 20 characters."]
-  }
+  },
+  runHistory: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: "Run"
+    }
+  ], 
+  orderHistory: [
+    {
+        
+        timesOrdered: {
+            type: Number,
+            default: 0
+        },
+        objectID: {
+            type: Schema.Types.ObjectId,
+            ref: "Order"
+        }
+    }
+  ],
+  orderItemHistory: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: "OrderItem"
+    }
+  ],
+  orderFavorites: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: "Order"
+    }
+  ],
+  incompleteRuns: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: "Run"
+    }
+  ]
 });
+
+UserSchema.methods.generateHash = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+}
+
+UserSchema.methods.checkPassword = function(plainTextPassword) {
+  return bcrypt.compareSync(plainTextPassword, this.password);
+  // return plainTextPassword === this.password;
+}
 
 const User = mongoose.model("User", UserSchema);
 

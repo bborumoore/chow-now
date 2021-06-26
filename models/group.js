@@ -6,10 +6,11 @@ const groupSchema = new Schema({
     type: String, 
     required: true 
   },
-  admin: [
+  admins: [
     {
       type: Schema.Types.ObjectId,
-      ref: "User"
+      ref: "User",
+      required: true
     }
   ],
   users: [
@@ -21,6 +22,9 @@ const groupSchema = new Schema({
   groupCreated: {
     type: Date, 
     default: Date.now
+  },
+  groupImgURL: {
+    type: String
   }
 });
 

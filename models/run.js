@@ -8,8 +8,15 @@ const runSchema = new Schema({
     },
     orders: [
         {
-            type: Schema.Types.ObjectId,
-            ref: "Order"
+        
+            orderPaid: {
+                type: Boolean,
+                default: false
+            },
+            objectID: {
+                type: Schema.Types.ObjectId,
+                ref: "Order"
+            }
         }
     ],
     runCreated: {
@@ -22,6 +29,14 @@ const runSchema = new Schema({
         default : 'started' 
     },
     runName: {
+        type: String,
+        required : true
+    },
+    restarauntName: {
+        type: String,
+        required : true
+    },
+    runAddress: {
         type: String,
         required : true
     }
