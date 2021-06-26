@@ -78,9 +78,9 @@ UserSchema.methods.generateHash = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 }
 
-UserSchema.methods.checkPassword = function(plainTextPassword) {
-  return bcrypt.compareSync(plainTextPassword, this.password);
-  // return plainTextPassword === this.password;
+UserSchema.methods.checkPassword = function(password) {
+  return bcrypt.compareSync(password, this.password);
+  // return password === this.password;
 }
 
 const User = mongoose.model("User", UserSchema);
