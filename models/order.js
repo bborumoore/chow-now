@@ -33,17 +33,6 @@ const orderSchema = new Schema({
     }
 });
 
-const determineTotal = () => {
-    // get all of orderItems IDs
-    for (let index = 0; index < this.orderItems.length; index++) {
-        const element = array[index];
-        axios.get(`/orderItem/${this.orderItems[index]}`)
-    }
-    // get the order item prices from orderItems
-    //total the prices
-    //return total value
-}
-
 const Order = mongoose.model("Order", orderSchema);
 
 module.exports = Order;
