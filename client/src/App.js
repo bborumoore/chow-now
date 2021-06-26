@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Dashboard from "./pages/Dashboard";
 import NewRun from "./pages/NewRun";
@@ -30,6 +30,12 @@ export const appMiddleware = () => next => action => {
 };
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [uid, setUID] = useState(-1);
+
+  console.log(loggedIn);
+  console.log(uid);
+
   return (
     <Router>
       <div>
@@ -47,7 +53,7 @@ function App() {
             <Run />
           </Route>
           <Route exact path="/login">
-            <Login />
+            {loggedIn ? <Redirect to="/" /> : <Login loginCB={setLoggedIn} uidCB={setUID} />}
           </Route>
           <Route exact path="/signup">
             <SignUp />

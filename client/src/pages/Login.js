@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
 
-function Login() {
+function Login({loginCB, uidCB}) {
     // Setting our component's initial state
     const [formObject, setFormObject] = useState({});
 
@@ -27,12 +27,17 @@ function Login() {
         // API to login
         API.getUserByEmail(email)
             .then(res => {
-                    console.log(res);
-                    console.log(res.data.password);
-                }
-            )
+                console.log(res);
+                console.log(res.data.password);
+                    if(res.data.password === password) {
+                        loginCB(true);
+                        uidCB(res.data._id);
+                        alert("You are logged in!");
+                    } else {
+                        alert("Incorrect email or password!");
+                    }
+                })
             .catch(err => console.log(err));
-
         // Then switch to dashboard
     };
 
@@ -45,7 +50,7 @@ function Login() {
                 <Input
                     onChange={handleInputChange}
                     name="Email"
-                    placeholder="Email (required)"
+                    placeholder="email (required)"
                 />
                 <Input
                     onChange={handleInputChange}
