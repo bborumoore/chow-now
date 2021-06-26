@@ -33,7 +33,44 @@ const UserSchema = new Schema({
   broadcastNote: {
       type: String,
       validate: [({ length }) => length <= 20, "Note can't be more than 20 characters."]
-  }
+  },
+  runHistory: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: "Run"
+    }
+  ],
+  orderHistory: [
+    {
+        
+        timesOrdered: {
+            type: Number,
+            default: 0
+        },
+        objectID: {
+            type: Schema.Types.ObjectId,
+            ref: "Order"
+        }
+    }
+  ],
+  orderItemHistory: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: "OrderItem"
+    }
+  ],
+  orderFavorites: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: "Order"
+    }
+  ],
+  incompleteRuns: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: "Run"
+    }
+  ]
 });
 
 const User = mongoose.model("User", UserSchema);

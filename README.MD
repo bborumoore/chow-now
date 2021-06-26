@@ -47,12 +47,29 @@ Chow Now brings busy "Hangry" users together in one app to order meals, pay for 
 
 ---
 ## Author Info
-- Jamie Rippee - [https://github.com/jamtrip7](https://ca.slack-edge.com/T01J4FQGGA2-U01KM5DLZH6-1546fc156004-512)<img src="client\src\assets\jr.jpg">
-- Brian Moore - [https://github.com/bborumoore](https://ca.slack-edge.com/T01J4FQGGA2-U01JG5DPJF4-ac50be6c54cc-512)<img src="client\src\assets\bm.jpg">
-- Thomas Lockwood - [https://github.com/lockwoodtommy01](https://ca.slack-edge.com/T01J4FQGGA2-U01JRM9G6R2-4e58b74a9269-512)<img src="client\src\assets\tl.jpg">
-- Claire Phillips - [https://github.com/ClairePhillips51](https://ca.slack-edge.com/T01J4FQGGA2-U01JN5VAM1A-adbaa1d0c604-512)<img src="client\src\assets\cp.jpg">
-- Marina Russ - [https://github.com/marina-russ](https://ca.slack-edge.com/T01J4FQGGA2-U01JFHH0G1Y-8a7d31bb8b38-512)<img src="client\src\assets\mr.jpg">
-- Bryce Spraggins - [https://github.com/Spragbry](https://ca.slack-edge.com/T01J4FQGGA2-U01K9N199FS-7f8726aaefa0-512)<img src="client\src\assets\bs.jpg">
+Jamie Rippee - [https://github.com/jamtrip7](https://ca.slack-edge.com/T01J4FQGGA2-U01KM5DLZH6-1546fc156004-512)
+
+<img src="client\src\assets\jr.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+
+Brian Moore - [https://github.com/bborumoore](https://ca.slack-edge.com/T01J4FQGGA2-U01JG5DPJF4-ac50be6c54cc-512)
+
+<img src="client\src\assets\bm.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+
+Thomas Lockwood - [https://github.com/lockwoodtommy01](https://ca.slack-edge.com/T01J4FQGGA2-U01JRM9G6R2-4e58b74a9269-512)
+
+<img src="client\src\assets\tl.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+
+Claire Phillips - [https://github.com/ClairePhillips51](https://ca.slack-edge.com/T01J4FQGGA2-U01JN5VAM1A-adbaa1d0c604-512)
+
+<img src="client\src\assets\cp.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+
+Marina Russ - [https://github.com/marina-russ](https://ca.slack-edge.com/T01J4FQGGA2-U01JFHH0G1Y-8a7d31bb8b38-512)
+
+<img src="client\src\assets\mr.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+
+Bryce Spraggins - [https://github.com/Spragbry](https://ca.slack-edge.com/T01J4FQGGA2-U01K9N199FS-7f8726aaefa0-512)
+
+<img src="client\src\assets\bs.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
   
 [Back to Top](#Chow-Now)
 
@@ -60,6 +77,7 @@ Chow Now brings busy "Hangry" users together in one app to order meals, pay for 
 ## Credits
 - [React](https://react.com/)
 - [Bootstrap](https://getbootstrap.com/)
+- [Mongoose Currency](https://www.npmjs.com/package/mongoose-currency)
 
 ---
 ## License
