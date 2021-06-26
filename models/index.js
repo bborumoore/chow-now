@@ -3,5 +3,6 @@ module.exports = {
   Order: require("./order"),
   OrderItem: require("./orderItem"),
   Run: require("./run"),
-  User: require("./user")
+  User: require("./user"),
+  UserSession: require("./userSession")
 };

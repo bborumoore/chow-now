@@ -8,8 +8,6 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import { apiRequest } from "./utils/API";
-import { LOGIN } from "./utils/auth";
 
 export const appMiddleware = () => next => action => {
   next(action);
@@ -39,6 +37,7 @@ function App() {
   return (
     <Router>
       <div>
+      <Nav />
         <Switch>
           <Route exact path="/">
             <Homepage />
@@ -62,7 +61,7 @@ function App() {
             <NoMatch />
           </Route>
         </Switch>
-        <Nav />
+        
       </div>
     </Router>
   );

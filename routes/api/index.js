@@ -4,6 +4,7 @@ const orderRoutes = require("./orders");
 const orderItemRoutes = require("./orderItems");
 const runRoutes = require("./runs");
 const userRoutes = require("./users");
+const authRoutes = require("./auth");
 
 // groups routes
 router.use("/groups", groupRoutes);
@@ -19,5 +20,8 @@ router.use("/runs", runRoutes);
 
 // users routes
 router.use("/users", userRoutes);
+
+// auth rouths
+router.use("/auth", authRoutes);
 
 module.exports = router;
