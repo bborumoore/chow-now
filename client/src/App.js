@@ -7,9 +7,9 @@ import Run from "./pages/Run";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import { apiRequest } from "./utils/API";
-import { LOGIN } from "./utils/auth";
+import Navbar from "./components/Nav";
+//import { apiRequest } from "./utils/API";
+/*import { LOGIN } from "./utils/auth";
 
 export const appMiddleware = () => next => action => {
   next(action);
@@ -27,7 +27,7 @@ export const appMiddleware = () => next => action => {
     default:
       break;
   }
-};
+};*/
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -62,7 +62,7 @@ function App() {
             <NoMatch />
           </Route>
         </Switch>
-        <Nav />
+        <Navbar />
       </div>
     </Router>
   );
