@@ -8,10 +8,10 @@ import "./style.css";
 function MealBox({ children }) {
   return (
     <div style={{ textAlign: "center" }} className="mealbox">
-      <h2>#6 Deluxe{props.orderMealName}</h2>
+      <h2>#6 Deluxe {props.orderMealName}</h2>
       {children}
 
-      <h2 className="order-total-price">$9.25 ${props.orderTotalPrice}</h2>
+      <h2 className="order-total-price">${props.orderTotalPrice}</h2>
     </div>
   );
 }
