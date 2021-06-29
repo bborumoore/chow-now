@@ -14,13 +14,15 @@ const chowSeed = [
     firstName: "Thomas",
     lastName: "Lockwood",
     password: "asdf1234",
-    email: "test@test.com"
+    email: "test@test.com",
+    broadcastNote: "string"
   },
   {
     firstName: "Brian",
     lastName: "Moore",
     password: "asdf1234",
-    email: "test1@test1.com"
+    email: "test1@test1.com",
+    broadcastNote: "string"
   }
 
 ];
@@ -69,20 +71,95 @@ db.User
             orderItems: [
               data2.insertedIds["0", "1", "2", "3"]
             ]
-          }]))
+          }]),
+            // TODO: orderItemIDs into "Tommy's order item history"
+            db.User
+              .findOneAndUpdate(
+                {
+                  email: "test@test.com"
+                },
+                {
+                  orderItemHistory: [data2.insertedIds["0"], data2.insertedIds["1"], data2.insertedIds["2"], data2.insertedIds["3"]],
+                },
+                {
+                  new: true
+                }
+              )
+              .then(orderItemUpdate => {
+                console.log(orderItemUpdate);
+              })
+          )
           .then(data3 => {
             console.log(data3.result.n + " records inserted!");
             console.log(data3);
             db.Run
               .deleteMany({})
-              .then(() => db.Run.collection.insertMany([{
-                runner: data.insertedIds["0"],
-                orders: [data3.insertedIds["0"]],
-                status: "started"
-              }]))
+              .then(() => db.Run.collection.insertMany([
+                {
+                  runner: data.insertedIds["0"],
+                  orders: [{ orderPaid: true, objectID: data3.insertedIds["0"] }],
+                  status: "completed"
+                },
+                {
+                  runner: data.insertedIds["0"],
+                  orders: [{ orderPaid: false, objectID: data3.insertedIds["0"] }],
+                  status: "started"
+                },
+              ]),
+                // TODO: put the orders into both the users orderHistory (as shown above) AND orderFavorites
+                db.User
+                  .findOneAndUpdate(
+                    {
+                      email: "test@test.com"
+                    },
+                    {
+                      orderHistory: {timesOrdered: 3, objectID: [data2.insertedIds["0"]]},
+                      orderFavorites: [data2.insertedIds["0"]]
+                    },
+                    {
+                      new: true
+                    }
+                  )
+                  .then(orderUpdate => {
+                    console.log(orderUpdate);
+                  })
+              )
               .then(data4 => {
                 console.log(data4.result.n + " records inserted!");
+                // TODO: run IDs (data4.insertedIds["0", "1"]) put both into run history, put ["1"] into incomplete runs for both users
                 console.log(data4);
+                db.User
+                  .findOneAndUpdate(
+                    {
+                      email: "test@test.com"
+                    },
+                    {
+                      runHistory: [data4.insertedIds["0"], data4.insertedIds["1"]],
+                      incompleteRuns: data4.insertedIds["1"]
+                    },
+                    {
+                      new: true
+                    }
+                  )
+                  .then(dataUpdate => {
+                    console.log(dataUpdate);
+                  })
+                db.User
+                  .findOneAndUpdate(
+                    {
+                      email: "test1@test1.com"
+                    },
+                    {
+                      runHistory: [data4.insertedIds["0"], data4.insertedIds["1"]],
+                      incompleteRuns: data4.insertedIds["1"]
+                    },
+                    {
+                      new: true
+                    }
+                  )
+                  .then(dataUpdate2 => {
+                    console.log(dataUpdate2);
+                  })
               });
             db.Group
               .deleteMany({})
@@ -104,4 +181,3 @@ db.User
     console.error(err);
     process.exit(1);
   });
-  
