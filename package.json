@@ -27,7 +27,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
-    "mongoose": "^5.12.13",
+    "mongoose": "^4.13.21",
     "mongoose-currency": "^0.2.0"
   },
   "repository": {
