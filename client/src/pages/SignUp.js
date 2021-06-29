@@ -1,24 +1,68 @@
 import React, { useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
+import API from "../utils/API";
 
 function SignUp() {
     // Setting our component's initial state
     const [formObject, setFormObject] = useState({});
+    const [err, setErr] = useState("");
 
     // Handles updating component state when the user types into the input field
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
+        setFormObject({ ...formObject, [name]: value })
     };
 
-    // When the form is submitted, use the API.saveBook method to save the book data
-    // Then reload books from the database
+    // When form is submitted, first check to ensure intended passwords match, then create the user in the DB
     function handleFormSubmit(event) {
         event.preventDefault();
-        // API to create user (& login?)
-        // API to login
-        // Then switch to dashboard
+
+        //Grab State
+        const email = formObject.email; 
+        console.log(email);
+        const password = formObject.password;
+        console.log(password);
+        const confirmPassword = formObject.confirmPassword;
+        console.log(confirmPassword);
+        const firstName = formObject.firstName; 
+        console.log(firstName);
+        const lastName = formObject.lastName;
+        console.log(lastName);
+
+        // Confirm that passwords match
+        if (password === confirmPassword) {
+        
+            // Post request to backend to create user
+            API.signup(
+                {
+                    firstName,
+                    lastName,
+                    password,
+                    email
+                }
+                //NOTE: If this isn't working go to 1:12:13 of video for troubleshooting, may need to change header of request
+            ).then(res => {
+                    setErr({
+                        err: res.message
+                    });
+                    console.log(err);
+                    if (res.sucess) {
+                        setFormObject({
+                            firstName: '',
+                            lastName: '',
+                            password: '',
+                            email: '',
+                            confirmPassword: ''
+                        })
+                    }
+                })
+
+        } else {
+            return res.send("Passwords must match.")
+        }
+
+
     };
 
     return (
@@ -27,38 +71,33 @@ function SignUp() {
                 <h1>Sign Up</h1>
             </Jumbotron>
             <form>
-                <Input 
-                    onChange={handleInputChange}
-                    name="Username"
-                    placeholder="username (required)"
-                />
                 <Input
                     onChange={handleInputChange}
-                    name="First Name"
+                    name="firstName"
                     placeholder="First Name (required)"
                 />
                 <Input
                     onChange={handleInputChange}
-                    name="Last Name"
-                    placeholder="Last Name (required)"
+                    name="lastName"
+                    placeholder="Last Name"
                 />
                 <Input
                     onChange={handleInputChange}
-                    name="Email"
-                    placeholder="email (required)"
+                    name="email"
+                    placeholder="Email (required)"
                 />
                 <Input
                     onChange={handleInputChange}
-                    name="Password"
-                    placeholder="password (required)"
+                    name="password"
+                    placeholder="Password (required)"
                 />
                 <Input
                     onChange={handleInputChange}
-                    name="Confirm Password"
-                    placeholder="password (required)"
+                    name="confirmPassword"
+                    placeholder="Confirm Password (required)"
                 />
                 <FormBtn onClick={handleFormSubmit}>
-                    Login
+                    Sign Up
                 </FormBtn>
             </form>
         </div>
