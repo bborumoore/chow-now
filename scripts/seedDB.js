@@ -98,12 +98,16 @@ db.User
                 {
                   runner: data.insertedIds["0"],
                   orders: [{ orderPaid: true, objectID: data3.insertedIds["0"] }],
-                  status: "completed"
+                  status: "completed",
+                  restaurantName: "Chipotle",
+                  restaurantAddress: "1234 1st St."
                 },
                 {
                   runner: data.insertedIds["0"],
                   orders: [{ orderPaid: false, objectID: data3.insertedIds["0"] }],
-                  status: "started"
+                  status: "started",
+                  restaurantName: "Pizza Hut",
+                  restaurantAddress: "4321 2nd Ave."
                 },
               ]),
                 // TODO: put the orders into both the users orderHistory (as shown above) AND orderFavorites
