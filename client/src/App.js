@@ -50,7 +50,7 @@ function App() {
                     <Route exact path="/">
                         <Homepage />
                     </Route>
-                    <Route exact path="/dashboard/:id">
+                    <Route exact path="/dashboard/:uid">
                         <Dashboard />
                     </Route>
                     <Route exact path="/newrun">
