@@ -7,7 +7,7 @@ function IncompleteRun(props) {
     <div className="incomplete-run">
         <h1>{props.name}</h1>
         <h3>owes me ${props.owed_ammount}</h3>
-        <Link to={"/run/:"+props.run_id}>Run #{props.run_id}</Link>
+        <Link to={"/run/:"+props.run_id}>View Run</Link>
     </div>
   );
 }

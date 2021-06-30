@@ -40,7 +40,7 @@ function Dashboard() {
     // Filter my runs by active and incomplete
     useEffect(() => {
         let tmp_activeRuns = [];
-        let tmp_incompleteRuns = [];
+        setIncompleteRuns([]);
         for(let iRun = 0; iRun < myRuns.length; iRun++) {
             const run  = myRuns[iRun];
             const run_id = run._id;
@@ -48,22 +48,32 @@ function Dashboard() {
             const rest_name = run.restaurantName;
             const rest_address = run.restaurantAddress;
             if (status === "started" || status === "ordered" || status === "pickedUp") {
-                tmp_activeRuns.push(<RestaurantBox run_id={run_id} restaurant_name={rest_name} address={rest_address}/>);
+                tmp_activeRuns.push(<RestaurantBox key={run_id} run_id={run_id} restaurant_name={rest_name} address={rest_address}/>);
             } else if (status == "delivered") {
                 const orders = run.orders;
                 for( let iOrder = 0; iOrder < orders.length; iOrder++) {
                     const order = orders[iOrder];
-                    const order_payed = order.orderPaid;
-                    if( !orderPaid ) {
-                        // const ower_name = order.<ower attribute name>
-                        // const owed_ammount = order.<owed amount attribute name>
-                        tmp_incompleteRuns.push(<IncompleteRun name="pholder" owed_amount="pholder" run_id={run_id}/>);
+                    const order_paid = order.orderPaid;
+                    if( !order_paid ) {
+                        const order_id = order.objectID;
+                        API.getOrder(order_id)
+                        .then((res) => res.data)
+                        .then((data) => {
+                            console.log(data);
+                            const orders_user = data.user;
+                            const order_total = data.orderTotal;
+                            API.getUser(orders_user)
+                            .then((res) => {
+                                const user_name = res.data.firstName;
+                                setIncompleteRuns(incompleteRuns.concat([<IncompleteRun key={run_id} name={user_name} owed_amount={order_total} run_id={run_id}/>]));
+                            });
+                        });
                     }
                 }
             }
         }
         setActiveRuns(tmp_activeRuns);
-        setIncompleteRuns(tmp_incompleteRuns);
+        //setIncompleteRuns(tmp_incompleteRuns);
     }, [allRuns]);
     console.log("Active Runs:", activeRuns);
     console.log("Incomplete Runs:", incompleteRuns);

@@ -65,12 +65,11 @@ db.User
         db.Order
           .deleteMany({})
           .then(() => db.Order.collection.insertMany([{
-            users: [
-              data.insertedIds["0"]
-            ],
+            user: data.insertedIds["0"],
             orderItems: [
               data2.insertedIds["0", "1", "2", "3"]
-            ]
+            ],
+            orderTotal: "$12.22",
           }]),
             // TODO: orderItemIDs into "Tommy's order item history"
             db.User
@@ -108,6 +107,13 @@ db.User
                   status: "started",
                   restaurantName: "Pizza Hut",
                   restaurantAddress: "4321 2nd Ave."
+                },
+                {
+                  runner: data.insertedIds["0"],
+                  orders: [{ orderPaid: false, objectID: data3.insertedIds["0"] }],
+                  status: "delivered",
+                  restaurantName: "Taco Bell",
+                  restaurantAddress: "1324 3nd Blvd."
                 },
               ]),
                 // TODO: put the orders into both the users orderHistory (as shown above) AND orderFavorites
