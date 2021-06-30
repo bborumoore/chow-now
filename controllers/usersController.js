@@ -41,11 +41,11 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  
+
   // Route for creating a new user
   signup: (req, res, next) => {
     const { body } = req;
-    const { 
+    const {
       firstName,
       lastName,
       password
@@ -54,25 +54,25 @@ module.exports = {
       email
     } = body;
 
-    if(!firstName) {
+    if (!firstName) {
       return res.send({
         success: false,
         message: 'Error: First name cannot be blank.'
       })
     }
-    if(!lastName) {
+    if (!lastName) {
       return res.send({
         success: false,
         message: 'Error: Last name cannot be blank.'
       })
     }
-    if(!email) {
+    if (!email) {
       return res.send({
         success: false,
         message: 'Error: email cannot be blank.'
       })
     }
-    if(!password) {
+    if (!password) {
       return res.send({
         success: false,
         message: 'Error: Password cannot be blank.'
@@ -121,12 +121,12 @@ module.exports = {
           message: 'User successfully created.'
         })
       });
-      
+
     });
-    
+
   },
 
-  
+
   //Route to be used for logging in a user securely
   login: (req, res, next) => {
     const { body } = req;
@@ -137,13 +137,13 @@ module.exports = {
       email
     } = body;
 
-    if(!email) {
+    if (!email) {
       return res.send({
         success: false,
         message: 'Error: email cannot be blank.'
       })
     }
-    if(!password) {
+    if (!password) {
       return res.send({
         success: false,
         message: 'Error: Password cannot be blank.'
@@ -163,7 +163,7 @@ module.exports = {
           message: 'Error: Server error'
         });
       }
-      if (users.length !=1) {
+      if (users.length != 1) {
         return res.send({
           success: false,
           message: 'Error: Invalid User'
@@ -190,13 +190,34 @@ module.exports = {
           });
         }
 
+        res.json({ user: userData, message: 'You are now logged in!' });
         return res.send({
           success: true,
           message: 'Valid sign in.',
           token: doc._id
         })
+
+        
       })
-    });  
+
+      // const userSession = new UserSession();
+      // userSession.userId = user._id;
+      // userSession.save((err, doc) => {
+      //   console.log('Attempting to save session');
+      //   if (err) {
+      //     return res.send({
+      //       success: false,
+      //       message: 'Error: Server error'
+      //     });
+      //   }
+
+      //   return res.send({
+      //     success: true,
+      //     message: 'Valid sign in.',
+      //     token: doc._id
+      //   })
+      // })
+    });
   },
 
   // Verify user credentials
@@ -211,18 +232,20 @@ module.exports = {
       _id: token,
       isDeleted: false
     }, (err, sessions) => {
+      console.log(sessions);
       if (err) {
         return res.send({
           success: false,
           message: 'Error: Server error'
         });
       }
-      if (sessions.length !=1) {
+      if (sessions.length != 1) {
         return res.send({
           success: false,
           message: 'Error: Invalid session'
         });
       } else {
+        // console.log("Success Reached")
         return res.send({
           success: true,
           message: 'Valid session'

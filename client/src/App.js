@@ -27,20 +27,19 @@ function App() {
             const { token } = obj;
             console.log(token);
             fetch('/api/auth/verify?token=' + token)
+                .then(res => res.json())
                 .then(res => {
-                    setToken(res.token),
-                        setIsLoading(false),
-                        setIsLoggedIn(true)
+                    console.log(res);
+                    setIsLoading(false);
+                    setLoggedIn(res.success);
+                    
                 })
         } else {
             setIsLoading(false);
         }
     }, []);
 
-
-
-    console.log(loggedIn);
-    console.log(uid);
+    console.log("Logged In: " + loggedIn);
 
     return (
         <Router>

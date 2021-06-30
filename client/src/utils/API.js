@@ -132,8 +132,8 @@ export default {
     return axios.post("/api/auth/login", loginData);
   },
   //Verify
-  verify: function (verifyData) {
-    return axios.get("/api/auth/verify", verifyData);
+  verify: function () {
+    return axios.get("/api/auth/verify");
   },
   //Logout
   logout: function (logoutData) {
