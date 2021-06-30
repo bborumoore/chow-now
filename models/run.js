@@ -32,11 +32,11 @@ const runSchema = new Schema({
         type: String,
         required : true
     },
-    restarauntName: {
+    restaurantName: {
         type: String,
         required : true
     },
-    runAddress: {
+    restaurantAddress: {
         type: String,
         required : true
     }
