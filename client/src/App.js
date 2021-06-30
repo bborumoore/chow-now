@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Homepage from "./pages/Homepage";
+import History from "./pages/History"
 import Dashboard from "./pages/Dashboard";
 import NewRun from "./pages/NewRun";
 import Run from "./pages/Run";
@@ -8,6 +9,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Nav";
+import HistoryBtn from "./components/HistoryBtn";
 //import { apiRequest } from "./utils/API";
 /*import { LOGIN } from "./utils/auth";
 
@@ -39,7 +41,8 @@ function App() {
   return (
     <Router>
       <div>
-        <Switch>
+      <Navbar />
+        <Switch> 
           <Route exact path="/">
             <Homepage />
           </Route>
@@ -58,11 +61,14 @@ function App() {
           <Route exact path="/signup">
             <SignUp />
           </Route>
+          <Route exact path="/history">
+            <History />
+          </Route>
           <Route>
             <NoMatch />
           </Route>
         </Switch>
-        <Navbar />
+        <HistoryBtn />
       </div>
     </Router>
   );

@@ -1,13 +1,23 @@
 import React from "react";
-import "./style.css";
+import { Link, useRouteMatch, Router } from "react-router-dom";
+import "./index.css";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
-function HistoryBtn(props) {
+function HistoryBtn (props) {
+
+  let match = useRouteMatch();
+
   return (
-    <span className="history-btn" {...props} role="button" tabIndex="0">
-      ✗
-    </span>
+   
+      <button className="history-btn">
+        <a href={`/history`}>
+          <h1>History</h1>
+          <i className="fas fa-history"></i>
+        </a>  
+      </button>
+   
+    
   );
 }
 
