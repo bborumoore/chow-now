@@ -64,13 +64,22 @@ db.User
         console.log(data2);
         db.Order
           .deleteMany({})
-          .then(() => db.Order.collection.insertMany([{
-            user: data.insertedIds["0"],
-            orderItems: [
-              data2.insertedIds["0", "1", "2", "3"]
-            ],
-            orderTotal: "$12.22",
-          }]),
+          .then(() => db.Order.collection.insertMany([
+            {
+              user: data.insertedIds["0"],
+              orderItems: [
+                data2.insertedIds["0", "2"]
+              ],
+              orderTotal: "$12.22",
+            },
+            {
+              user: data.insertedIds["1"],
+              orderItems: [
+                data2.insertedIds["1", "2", "3"]
+              ],
+              orderTotal: "$17.39",
+            }
+            ]),
             // TODO: orderItemIDs into "Tommy's order item history"
             db.User
               .findOneAndUpdate(
@@ -110,7 +119,7 @@ db.User
                 },
                 {
                   runner: data.insertedIds["0"],
-                  orders: [{ orderPaid: false, objectID: data3.insertedIds["0"] }],
+                  orders: [{ orderPaid: false, objectID: data3.insertedIds["0"] }, { orderPaid: false, objectID: data3.insertedIds["1"] }],
                   status: "delivered",
                   restaurantName: "Taco Bell",
                   restaurantAddress: "1324 3nd Blvd."
