@@ -29,6 +29,7 @@ function App() {
 
     useEffect(() => {
         const obj = getFromStorage('chow-now');
+        console.log("Obj: " + obj);
 
         // Validate token **FIND A WAY TO ENSURE THIS HAPPENS AFTER RETRIEVING TOKEN**
         // I think I did that successfully, leaving note just in case
