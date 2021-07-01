@@ -1,8 +1,8 @@
 # Chow Now
 
-<img src="">
+<img src="client/src/screenshots/Screenshot1.jpg">
 
-[Chow Now Website]()
+[Chow Now Website](https://pure-fortress-22710.herokuapp.com/)
 ---
 ### Table of Contents
 - [Descritption](#description)
