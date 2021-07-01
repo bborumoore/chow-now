@@ -1,8 +1,8 @@
 # Chow Now
 
-<img src="">
+<img src="client/src/screenshots/Screenshot1.jpg">
 
-[Chow Now Website]()
+[Chow Now Website](https://pure-fortress-22710.herokuapp.com/)
 ---
 ### Table of Contents
 - [Descritption](#description)
@@ -47,29 +47,29 @@ Chow Now brings busy "Hangry" users together in one app to order meals, pay for 
 
 ---
 ## Author Info
-Jamie Rippee - [https://github.com/jamtrip7](https://ca.slack-edge.com/T01J4FQGGA2-U01KM5DLZH6-1546fc156004-512)
+Jamie Rippee - [https://github.com/jamtrip7](https://github.com/jamtrip7)
 
-<img src="client\src\assets\jr.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+[<img src="client\src\assets\jr.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">](client\src\assets\jr.jpg)
 
-Brian Moore - [https://github.com/bborumoore](https://ca.slack-edge.com/T01J4FQGGA2-U01JG5DPJF4-ac50be6c54cc-512)
+Brian Moore - [https://github.com/bborumoore](https://github.com/bborumoore)
 
-<img src="client\src\assets\bm.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+[<img src="client\src\assets\bm.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">](client\src\assets\bm.jpg)
 
-Thomas Lockwood - [https://github.com/lockwoodtommy01](https://ca.slack-edge.com/T01J4FQGGA2-U01JRM9G6R2-4e58b74a9269-512)
+Thomas Lockwood - [https://github.com/lockwoodtommy01](https://github.com/lockwoodtommy01)
 
-<img src="client\src\assets\tl.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+[<img src="client\src\assets\tl.jpg" alt="profile pic" width="100" height="120" style="margin: -15px 0px 15px 0px">](client\src\assets\tl.JPG)
 
-Claire Phillips - [https://github.com/ClairePhillips51](https://ca.slack-edge.com/T01J4FQGGA2-U01JN5VAM1A-adbaa1d0c604-512)
+Claire Phillips - [https://github.com/ClairePhillips51](https://github.com/ClairePhillips51)
 
-<img src="client\src\assets\cp.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+[<img src="client\src\assets\cp.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">](client\src\assets\cp.JPG)
 
-Marina Russ - [https://github.com/marina-russ](https://ca.slack-edge.com/T01J4FQGGA2-U01JFHH0G1Y-8a7d31bb8b38-512)
+Marina Russ - [https://github.com/marina-russ](https://github.com/marina-russ)
 
-<img src="client\src\assets\mr.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+[<img src="client\src\assets\mr.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">](client\src\assets\mr.JPG)
 
-Bryce Spraggins - [https://github.com/Spragbry](https://ca.slack-edge.com/T01J4FQGGA2-U01K9N199FS-7f8726aaefa0-512)
+Bryce Spraggins - [https://github.com/Spragbry](https://github.com/Spragbry)
 
-<img src="client\src\assets\bs.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">
+[<img src="client\src\assets\bs.jpg" alt="profile pic" width="100" height="100" style="margin: -15px 0px 15px 0px">](client\src\assets\bs.JPG)
   
 [Back to Top](#Chow-Now)
 
