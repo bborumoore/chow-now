@@ -179,10 +179,10 @@ module.exports = {
       }
 
       // Create User Session
-      const userSession = new UserSession();
-      userSession.userId = user._id;
-      userSession.save((err, doc) => {
-        console.log('Attempting to save session');
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+
         if (err) {
           return res.send({
             success: false,
@@ -225,6 +225,7 @@ module.exports = {
     // Get the user token
     const { query } = req;
     const { token } = query;
+    // console.log(token);
     // ?token=test
 
     // Verify token is unique and not Deleted
@@ -264,24 +265,37 @@ module.exports = {
     const { token } = query;
     // ?token=test
 
-    // Verify token is unique and not Deleted
-    UserSession.findOneAndUpdate({
-      _id: token,
-      isDeleted: false
-    }, {
-      $set: {
-        isDeleted: true}
-    }, null, (err, sessions) => {
-      if (err) {
-        return res.send({
-          success: false,
-          message: 'Error: Server error'
-        });
-      }
-        return res.send({
-          success: true,
-          message: 'Session Terminated'
-        });
-    });
+    // Destroy current session
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      return res.send({
+        success: false,
+        message: 'Invalid attempt'
+      })
+    }
+
+    // // Verify token is unique and not Deleted
+    // UserSession.findOneAndUpdate({
+    //   _id: token,
+    //   isDeleted: false
+    // }, {
+    //   $set: {
+    //     isDeleted: true
+    //   }
+    // }, null, (err, sessions) => {
+    //   if (err) {
+    //     return res.send({
+    //       success: false,
+    //       message: 'Error: Server error'
+    //     });
+    //   }
+    //   return res.send({
+    //     success: true,
+    //     message: 'Session Terminated'
+    //   });
+    // });
   }
 };
