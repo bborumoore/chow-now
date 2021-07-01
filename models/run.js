@@ -31,6 +31,14 @@ const runSchema = new Schema({
     runName: {
         type: String,
         required : true
+    },
+    restaurantName: {
+        type: String,
+        required : true
+    },
+    restaurantAddress: {
+        type: String,
+        required : true
     }
 });
 

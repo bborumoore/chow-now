@@ -119,5 +119,26 @@ export default {
   // Deletes the group with the given id
   deleteGroup: function (id) {
     return axios.delete("/api/groups/" + id);
+  },
+
+  // AUTH FUNCTIONS
+
+  //Signup
+  signup: function (signUpData) {
+    return axios.post("/api/auth/signup", signUpData);
+  },
+  //Login
+  login: function (loginData) {
+    return axios.post("/api/auth/login", loginData);
+  },
+  //Verify
+  verify: function (verifyData) {
+    return axios.get("/api/auth/verify", verifyData);
+  },
+  //Logout
+  logout: function (logoutData) {
+    return axios.get("/api/auth/verify", logoutData);
   }
+    
+  
 };

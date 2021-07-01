@@ -2,8 +2,9 @@ import React, { useState, useCallback } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
+import { setInStorage } from "../utils/storage";
 
-function Login({loginCB, uidCB}) {
+function Login() {
     // Setting our component's initial state
     const [formObject, setFormObject] = useState({});
 
@@ -13,34 +14,36 @@ function Login({loginCB, uidCB}) {
         setFormObject({ ...formObject, [name]: value })
     };
 
-    // When the form is submitted, request the user object from the DB to compare the 
-    // input password vs the stored password
-    function handleFormSubmit(event) {
-        event.preventDefault();
+   // When form is submitted, send information to backend for a login request and store the usersession token in localstorage
+   function handleFormSubmit(event) {
+    event.preventDefault();
+       
+        //Grab State
+        const email = formObject.email; 
+        console.log(email);
+        const password = formObject.password;
+        console.log(password);
 
-        // Decalare variables to be used for login validation
-        let email = formObject.Email;
-        console.log("email: " + email);
-        let password = formObject.Password;
-        console.log("password: " + password);
+         // Post request to create user session
+         API.login(
+          
+                {
+                    password,
+                    email
+                }
+            
+            //NOTE: If this isn't working go to 1:12:13 of video for troubleshooting, may need to change header of request
+        ).then(res => {
+            console.log(res)
+             if (res.success) {
+                 setInStorage('chow-now', { token: res.token });
+             }
+         })
 
-        // API to login
-        API.getUserByEmail(email)
-            .then(res => {
-                console.log(res);
-                console.log(res.data.password);
-                    if(res.data.password === password) {
-                        loginCB(true);
-                        uidCB(res.data._id);
-                        alert("You are logged in!");
-                    } else {
-                        alert("Incorrect email or password!");
-                    }
-                })
-            .catch(err => console.log(err));
-        // Then switch to dashboard
-    };
+    }
 
+        
+    
     return (
         <div>
             <Jumbotron>
@@ -49,13 +52,15 @@ function Login({loginCB, uidCB}) {
             <form>
                 <Input
                     onChange={handleInputChange}
-                    name="Email"
-                    placeholder="email (required)"
+                    name="email"
+                    placeholder="Email (required)"
+                    type="email"
                 />
                 <Input
                     onChange={handleInputChange}
-                    name="Password"
-                    placeholder="password (required)"
+                    name="password"
+                    placeholder="Password (required)"
+                    type="password"
                 />
                 <FormBtn onClick={handleFormSubmit}>
                     Login

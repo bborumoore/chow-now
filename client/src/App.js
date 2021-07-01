@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import History from "./pages/History"
+import History from "./pages/History";
 import Dashboard from "./pages/Dashboard";
 import NewRun from "./pages/NewRun";
 import Run from "./pages/Run";
@@ -11,29 +16,30 @@ import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Nav";
 import HistoryBtn from "./components/HistoryBtn";
 //import { apiRequest } from "./utils/API";
-/*import { LOGIN } from "./utils/auth";
-
-export const appMiddleware = () => next => action => {
-  next(action);
-  switch (action.type) {
-    case LOGIN: {
-      next(
-        apiRequest({
-          url: `${SERVER_URL}/login`,
-          method: "POST",
-          data: action.payload
-        })
-      );
-      break;
-    }
-    default:
-      break;
-  }
-};*/
+//import { LOGIN } from "./utils/auth";
+import { getFromStorage } from "./utils/storage";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [uid, setUID] = useState(-1);
+  const [token, setToken] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const obj = getFromStorage("chow-now");
+
+    // Validate token **FIND A WAY TO ENSURE THIS HAPPENS AFTER RETRIEVING TOKEN**
+    // I think I did that successfully, leaving note just in case
+    if (obj && obj.token) {
+      const { token } = obj;
+      console.log(token);
+      fetch("/api/auth/verify?token=" + token).then((res) => {
+        setToken(res.token), setIsLoading(false), setIsLoggedIn(true);
+      });
+    } else {
+      setIsLoading(false);
+    }
+  }, []);
 
   console.log(loggedIn);
   console.log(uid);
@@ -41,12 +47,11 @@ function App() {
   return (
     <Router>
       <div>
-      <Navbar />
-        <Switch> 
+        <Switch>
           <Route exact path="/">
             <Homepage />
           </Route>
-          <Route exact path="/dashboard/:id">
+          <Route exact path="/dashboard/:uid">
             <Dashboard />
           </Route>
           <Route exact path="/newrun">
@@ -56,7 +61,11 @@ function App() {
             <Run />
           </Route>
           <Route exact path="/login">
-            {loggedIn ? <Redirect to="/" /> : <Login loginCB={setLoggedIn} uidCB={setUID} />}
+            {loggedIn ? (
+              <Redirect to="/" />
+            ) : (
+              <Login loginCB={setLoggedIn} uidCB={setUID} />
+            )}
           </Route>
           <Route exact path="/signup">
             <SignUp />
@@ -69,6 +78,7 @@ function App() {
           </Route>
         </Switch>
         <HistoryBtn />
+        <Navbar />
       </div>
     </Router>
   );
