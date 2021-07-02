@@ -20,26 +20,34 @@ import HistoryBtn from "./components/HistoryBtn";
 import { getFromStorage } from "./utils/storage";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [uid, setUID] = useState(-1);
-  const [token, setToken] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [uid, setUID] = useState(-1);
+    const [token, setToken] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const obj = getFromStorage("chow-now");
 
-    // Validate token **FIND A WAY TO ENSURE THIS HAPPENS AFTER RETRIEVING TOKEN**
-    // I think I did that successfully, leaving note just in case
-    if (obj && obj.token) {
-      const { token } = obj;
-      console.log(token);
-      fetch("/api/auth/verify?token=" + token).then((res) => {
-        setToken(res.token), setIsLoading(false), setIsLoggedIn(true);
-      });
-    } else {
-      setIsLoading(false);
-    }
-  }, []);
+    useEffect(() => {
+        const obj = getFromStorage('chow-now');
+
+        // Validate token **FIND A WAY TO ENSURE THIS HAPPENS AFTER RETRIEVING TOKEN**
+        // I think I did that successfully, leaving note just in case
+        if (obj && obj.token) {
+            const { token } = obj;
+            console.log(token);
+        //     fetch('/api/auth/verify?token=' + token)
+        //         .then(res => res.json())
+        //         .then(res => {
+        //             console.log(res);
+        //             setIsLoading(false);
+        //             setLoggedIn(res.success);
+                    
+        //         })
+        // } else {
+        //     setIsLoading(false);
+        }
+    }, []);
+
+    console.log("Logged In: " + loggedIn);
 
   console.log(loggedIn);
   console.log(uid);
@@ -51,7 +59,7 @@ function App() {
           <Route exact path="/">
             <Homepage />
           </Route>
-          <Route exact path="/dashboard/:uid">
+          <Route exact path="/dashboard">
             <Dashboard />
           </Route>
           <Route exact path="/newrun">

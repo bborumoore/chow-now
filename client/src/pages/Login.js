@@ -14,36 +14,37 @@ function Login() {
         setFormObject({ ...formObject, [name]: value })
     };
 
-   // When form is submitted, send information to backend for a login request and store the usersession token in localstorage
-   function handleFormSubmit(event) {
-    event.preventDefault();
-       
+    // When form is submitted, send information to backend for a login request and store the usersession token in localstorage
+    function handleFormSubmit(event) {
+        event.preventDefault();
+
         //Grab State
-        const email = formObject.email; 
+        const email = formObject.email;
         console.log(email);
         const password = formObject.password;
         console.log(password);
 
-         // Post request to create user session
-         API.login(
-          
-                {
-                    password,
-                    email
-                }
-            
+        // Post request to create user session
+        API.login(
+
+            {
+                password,
+                email
+            }
+
             //NOTE: If this isn't working go to 1:12:13 of video for troubleshooting, may need to change header of request
         ).then(res => {
-            console.log(res)
-             if (res.success) {
-                 setInStorage('chow-now', { token: res.token });
-             }
-         })
+            console.log(res);
+            console.log(res.data.success);
+            if (res.data.success) {
+                setInStorage('chow-now', { token: res.data.token });
+            }
+        })
 
     }
 
-        
-    
+
+
     return (
         <div>
             <Jumbotron>
