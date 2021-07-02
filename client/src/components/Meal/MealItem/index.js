@@ -13,13 +13,13 @@ function MealItem({ item }) {
         <i>✏</i>
       </div>
       <div className="col-7 item-name">
-        Cheeseburger {item.orderItemName}
+        {item.orderItemName}
         <div className="item-details">
-          <em>No pickles, no tomato{item.orderItemNotes}</em>
+          <em>{item.orderItemNotes}</em>
         </div>
       </div>
       <div className="col-1 item-qty">x{item.orderItemQty}</div>
-      <div className="col-2 item-price">${item.orderItemPrice}</div>
+      <div className="col-2 item-price">{item.orderItemPrice}</div>
     </div>
   );
 }
