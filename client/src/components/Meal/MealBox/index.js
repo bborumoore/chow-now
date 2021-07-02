@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+<<<<<<< HEAD
 import MealItem from "../MealItem";
 
 function MealBox(props) {
@@ -27,6 +28,20 @@ function MealBox(props) {
       })}
 
       <h2 className="order-total-price">${orderTotal.toFixed(2)}</h2>
+=======
+
+// MealBox displays meal name, MealItem child components, and total meal cost
+
+// TODO: DB needs orderMealName, orderTotalPrice
+
+function MealBox({ children }) {
+  return (
+    <div style={{ textAlign: "center" }} className="mealbox">
+      <h2>#6 Deluxe{props.orderMealName}</h2>
+      {children}
+
+      <h2 className="order-total-price">$9.25 ${props.orderTotalPrice}</h2>
+>>>>>>> 0904346eb73a8478cde0c103235efd3b317775a5
     </div>
   );
 }
