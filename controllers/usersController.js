@@ -177,29 +177,41 @@ module.exports = {
           message: 'Error: Invalid Login attempt'
         });
       }
+      
+      console.log(users[0]);
+      // res.json({ user: userData, message: 'You are now logged in!' });
+      // console.log('UserId: ' + userData.id);
+      return res.send({
+        success: true,
+        message: "Valid sign in.",
+        token: users[0].id
+      })
+
+
+  
 
       // Create User Session
-      req.session.save(() => {
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;
+      // req.session.save(() => {
+      //   req.session.user_id = userData.id;
+      //   req.session.logged_in = true;
 
-        if (err) {
-          return res.send({
-            success: false,
-            message: 'Error: Server error'
-          });
-        }
+      //   if (err) {
+      //     return res.send({
+      //       success: false,
+      //       message: 'Error: Server error'
+      //     });
+      //   }
 
-        res.json({ user: userData, message: 'You are now logged in!' });
-        return res.send({
-          success: true,
-          message: 'Valid sign in.',
-          token: doc._id,
-          userId: userData.id
-        })
+        // res.json({ user: userData, message: 'You are now logged in!' });
+        // return res.send({
+        //   success: true,
+        //   message: 'Valid sign in.',
+        //   token: doc._id,
+        //   userId: userData.id
+        // })
 
         
-      })
+      // })
 
       // const userSession = new UserSession();
       // userSession.userId = user._id;
