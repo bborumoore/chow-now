@@ -14,7 +14,7 @@ function MealItemEdit(props) {
           <div className="col-7 item-name add">
             Sprite {props.orderItemName}
             <input type="text" placeholder="Add additional notes here" />{" "}
-            {props.orderItemNotes}
+            Notes are here {props.orderItemNotes}
           </div>
 
           <div className="col-1 item-qty">x{props.orderItemQty}</div>
