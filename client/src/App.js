@@ -20,7 +20,6 @@ import HistoryBtn from "./components/HistoryBtn";
 import { getFromStorage } from "./utils/storage";
 
 function App() {
-<<<<<<< HEAD
     const [loggedIn, setLoggedIn] = useState(false);
     const [uid, setUID] = useState(-1);
     const [token, setToken] = useState("");
@@ -29,49 +28,26 @@ function App() {
 
     useEffect(() => {
         const obj = getFromStorage('chow-now');
-        console.log("Obj: " + obj);
 
         // Validate token **FIND A WAY TO ENSURE THIS HAPPENS AFTER RETRIEVING TOKEN**
         // I think I did that successfully, leaving note just in case
         if (obj && obj.token) {
             const { token } = obj;
             console.log(token);
-            fetch('/api/auth/verify?token=' + token)
-                .then(res => res.json())
-                .then(res => {
-                    console.log(res);
-                    setIsLoading(false);
-                    setLoggedIn(res.success);
+        //     fetch('/api/auth/verify?token=' + token)
+        //         .then(res => res.json())
+        //         .then(res => {
+        //             console.log(res);
+        //             setIsLoading(false);
+        //             setLoggedIn(res.success);
                     
-                })
-        } else {
-            setIsLoading(false);
+        //         })
+        // } else {
+        //     setIsLoading(false);
         }
     }, []);
 
     console.log("Logged In: " + loggedIn);
-=======
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [uid, setUID] = useState(-1);
-  const [token, setToken] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const obj = getFromStorage("chow-now");
-
-    // Validate token **FIND A WAY TO ENSURE THIS HAPPENS AFTER RETRIEVING TOKEN**
-    // I think I did that successfully, leaving note just in case
-    if (obj && obj.token) {
-      const { token } = obj;
-      console.log(token);
-      fetch("/api/auth/verify?token=" + token).then((res) => {
-        setToken(res.token), setIsLoading(false), setIsLoggedIn(true);
-      });
-    } else {
-      setIsLoading(false);
-    }
-  }, []);
->>>>>>> 3f295edbf6eb3e8287a2fd22e442c780a95e143b
 
   console.log(loggedIn);
   console.log(uid);
@@ -83,7 +59,7 @@ function App() {
           <Route exact path="/">
             <Homepage />
           </Route>
-          <Route exact path="/dashboard/:uid">
+          <Route exact path="/dashboard">
             <Dashboard />
           </Route>
           <Route exact path="/newrun">

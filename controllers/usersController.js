@@ -109,7 +109,7 @@ module.exports = {
       newUser.lastName = lastName;
       newUser.password = newUser.generateHash(password);
       newUser.save((err, user) => {
-        console.log('Inside user.save callback');
+        console.log('Inside user save callback');
         if (err) {
           return res.send({
             success: false,
@@ -194,7 +194,8 @@ module.exports = {
         return res.send({
           success: true,
           message: 'Valid sign in.',
-          token: doc._id
+          token: doc._id,
+          userId: userData.id
         })
 
         
@@ -229,7 +230,10 @@ module.exports = {
     // ?token=test
 
     // Verify token is unique and not Deleted
-    UserSession.find({
+    // UserSession.find({
+
+    // Temporarilty switching to finding users with the token instead of using sessions middleware
+    User.find({
       _id: token,
       isDeleted: false
     }, (err, sessions) => {
