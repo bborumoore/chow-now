@@ -9,6 +9,7 @@ import Homepage from "./pages/Homepage";
 import History from "./pages/History";
 import Dashboard from "./pages/Dashboard";
 import NewRun from "./pages/NewRun";
+import AddMeal from "./pages/AddMeal";
 import Run from "./pages/Run";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
@@ -56,6 +57,9 @@ function App() {
           </Route>
           <Route exact path="/newrun">
             <NewRun />
+          </Route>
+          <Route exact path="/addmeal">
+            <AddMeal />
           </Route>
           <Route exact path="/run/:id">
             <Run />

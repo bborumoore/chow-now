@@ -1,18 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import Navbar from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
-import Meal from "../components/Meal";
 import MealBox from "../components/Meal/MealBox";
 import MealItem from "../components/Meal/MealItem";
-// import MealEdit from "../components/Meal/MealEdit";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 function AddMeal() {
 
-    // JavaScript goes here
+    const [listItems, setItems] = useState([
+        // DUMMY DATA FOR TESTING:
+        {
+            orderItemName: "name",
+            orderItemNotes: "there is a note here",
+            orderItemQty: "2",
+            orderItemPrice: "$3.25"
+        }
+    ]);
+    useEffect(() => {
+        console.log("test string for useEffect");
+        // fetch from api data stuffs
+    }, [])
 
     return (
         <div>
-
+            <Navbar />
+            <Jumbotron>
+                Add Meal
+            </Jumbotron>
+            <MealBox>
+                {listItems.map(item => {
+                    return (
+                        <MealItem item={item} />
+                    )
+                })}
+            </MealBox>
         </div>
     );
 }
