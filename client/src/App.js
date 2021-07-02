@@ -50,9 +50,6 @@ function App() {
 
     console.log("Logged In: " + loggedIn);
 
-  console.log(loggedIn);
-  console.log(uid);
-
   return (
     <Router>
       <div>
