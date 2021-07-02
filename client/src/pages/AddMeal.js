@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
 import MealBox from "../components/Meal/MealBox";
-import MealItem from "../components/Meal/MealItem";
+
 // import { useParams } from "react-router-dom";
 
 function AddMeal() {
@@ -10,7 +10,7 @@ function AddMeal() {
     const [listItems, setItems] = useState([
         // DUMMY DATA FOR TESTING:
         {
-            orderItemName: "name",
+            orderItemName: "order name",
             orderItemNotes: "there is a note here",
             orderItemQty: "2",
             orderItemPrice: "$3.25"
@@ -27,13 +27,7 @@ function AddMeal() {
             <Jumbotron>
                 Add Meal
             </Jumbotron>
-            <MealBox>
-                {listItems.map(item => {
-                    return (
-                        <MealItem item={item} />
-                    )
-                })}
-            </MealBox>
+            <MealBox listOfItems={listItems} />
         </div>
     );
 }
