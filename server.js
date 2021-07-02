@@ -1,5 +1,5 @@
 const express = require("express");
-const session = require('express-session');
+// const session = require('express-session');
 // const MongoStore = require('connect-mongo')(express);
 const mongoose = require("mongoose");
 const routes = require("./routes");
