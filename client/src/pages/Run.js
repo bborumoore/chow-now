@@ -3,8 +3,18 @@ import { useParams } from "react-router-dom";
 import RestaurantBox from "../components/RestaurantBox";
 import UserOrder from "../components/UserOrder";
 import StatusBar from "../components/StatusBar";
+import { Button } from "../components/Button";
 import API from "../utils/API.js";
 import { getFromStorage } from "../utils/storage";
+
+function formatTime(fourDigitTime){
+    var hours24 = parseInt(fourDigitTime.substring(0,2));
+    var hours = ((hours24 + 11) % 12) + 1;
+    var amPm = hours24 > 11 ? 'pm' : 'am';
+    var minutes = fourDigitTime.substring(2);
+
+    return hours + minutes + amPm;
+};
 
 async function getRunFromAPI(rid, token, restNameCB, restAddressCB, statusCB, timeCB, ordersCB, inRunCB, isRunnerCB) {
     await API.getRun(rid)
@@ -15,7 +25,9 @@ async function getRunFromAPI(rid, token, restNameCB, restAddressCB, statusCB, ti
             restNameCB(res.data.restaurantName);
             restAddressCB(res.data.restaurantAddress);
             statusCB(res.data.status);
+            // timeCB(formatTime(res.data.time));
             getOrdersFromAPI(res.data,ordersCB, token, inRunCB);
+            timeCB(formatTime(res.data.time));
         })
         .catch(err => console.log(err));
 }
@@ -78,6 +90,28 @@ function Run() {
         getRunFromAPI(id, token, setRestName, setRestAddress, setStatus, setTime, setOrders, setUserIsInRun, setIsRunner);
     }, []);
 
+    function addUserToRun() {
+        const new_order = {
+            user: token,
+            orderItems: [],
+            orderTotal: "$0"
+        };
+        API.createOrder(new_order)
+        .then((res) => {
+            let oid = res.data._id;
+            API.getRun(id)
+            .then((res) => {
+                let tmp_orders = res.data.orders;
+                tmp_orders.push({objectID: oid, orderPaid: false});
+                API.updateRun(id,{
+                    orders: tmp_orders
+                }).then((res) => {
+                    window.location.reload();
+                });
+            });
+        });
+    }
+
     return (
         <div>
             <RestaurantBox restaurant_name={restaurant_name} address={restaurant_address} run_id={id}/>
@@ -89,12 +123,17 @@ function Run() {
                     Click here for invite link!
             </a></h3>
             <h3>Group:</h3>
-            {orders}
+            {orders.length > 0 ? orders : <h3>&emsp; No participants yet</h3>}
 
             <h3>Meal Placeholder</h3>
 
-            {!userIsInRun ? <h3>Add Me To Run!</h3> : false}
-            {isRunner ? <h3>Place Order</h3> : false}
+            {!userIsInRun && status === "started" ? <Button type="button" buttonSize="btn-lg" onClick={addUserToRun} >Add Me To Run!</Button> : false}
+
+            {isRunner && status === "started" && orders.length > 0 ? <h3>Place Order</h3> : false}
+            {isRunner && status === "ordered" ? <h3>Picked Up</h3> : false}
+            {isRunner && status === "pickedUp" ? <h3>Mark Delivered</h3> : false}
+            {isRunner && status === "delivered" ? <h3>Mark Completed</h3> : false}
+            {isRunner && status === "completed" ? <h3>Completed!</h3> : false}
         </div>
     );
 }
