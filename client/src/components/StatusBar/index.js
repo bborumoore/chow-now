@@ -11,37 +11,37 @@ function StatusBar(props) {
             status = "Taking Orders";
             time = "Place by " + time;
             bar =   <div className="row">
-                        <div className="col-3" style={{"background-color": "gray"}}></div>
-                        <div className="col-3" style={{"background-color": "white"}}></div>
-                        <div className="col-3" style={{"background-color": "white"}}></div>
-                        <div className="col-3" style={{"background-color": "white"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "gray"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "white"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "white"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "white"}}></div>
                     </div>;
             break;
         case "ordered":
             status = "Order Placed";
             bar =   <div className="row">
-                        <div className="col-3" style={{"background-color": "gray"}}></div>
-                        <div className="col-3" style={{"background-color": "gray"}}></div>
-                        <div className="col-3" style={{"background-color": "white"}}></div>
-                        <div className="col-3" style={{"background-color": "white"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "gray"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "gray"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "white"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "white"}}></div>
                     </div>;
             break;
         case "pickedUp":
             status = "Food Picked Up";
             bar =   <div className="row">
-                        <div className="col-3" style={{"background-color": "gray"}}></div>
-                        <div className="col-3" style={{"background-color": "gray"}}></div>
-                        <div className="col-3" style={{"background-color": "gray"}}></div>
-                        <div className="col-3" style={{"background-color": "white"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "gray"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "gray"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "gray"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "white"}}></div>
                     </div>;
             break;
         case "delivered":
             status = "Food Delivered";
             bar =   <div className="row">
-                        <div className="col-3" style={{"background-color": "gray"}}></div>
-                        <div className="col-3" style={{"background-color": "gray"}}></div>
-                        <div className="col-3" style={{"background-color": "gray"}}></div>
-                        <div className="col-3" style={{"background-color": "gray"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "gray"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "gray"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "gray"}}></div>
+                        <div className="col-3" style={{"backgroundColor": "gray"}}></div>
                     </div>;
             break;
         default:
