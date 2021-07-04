@@ -83,7 +83,7 @@ async function getIOUS(othersRuns, iousCB, uid) {
 function Dashboard() {
 
     // Grab id passed in url
-    // const {uid} = useParams();
+    const { uid } = useParams();
 
     // Arrays to hold associated componenets.
     const [runInvites, setInvites] = useState([]);
@@ -120,38 +120,27 @@ function Dashboard() {
     }, []);
     //console.log("All Runs:",allRuns);
 
-
+    // filter all runs by user
+    let myRuns = [];
+    let othersRuns = [];
+    for (let iRun = 0; iRun < allRuns.length; iRun++) {
+        if (allRuns[iRun].runner === uid) {
+            myRuns.push(allRuns[iRun]);
+        } else {
+            othersRuns.push(allRuns[iRun]);
+        }
+    }
     //console.log("My Runs:",myRuns);
     //console.log("Other's runs:",othersRuns);
 
     // Filter runs by active, incomplete, and ious
     useEffect(() => {
-        console.log("This is the uid: " + uid);
-        console.log("-------------");
-        console.log("All Runs as follows:");
-        console.log(allRuns);
-        console.log("-------------");
-        if (allRuns && allRuns.length) {
-            // filter all runs by user
-            let myRuns = [];
-            let othersRuns = [];
-            for (let iRun = 0; iRun < allRuns.length; iRun++) {
-                if (allRuns[iRun].runner === uid) {
-                    myRuns.push(allRuns[iRun]);
-                } else {
-                    othersRuns.push(allRuns[iRun]);
-                }
-            }
-            getActiveAndIncompleteRuns(myRuns, setActiveRuns, setIncompleteRuns);
-            getIOUS(othersRuns, setIOUS, uid);
-            
-                       
-        }
-
-    }, [allRuns, uid]);
-    console.log("Active Runs:", activeRuns);
+        getActiveAndIncompleteRuns(myRuns, setActiveRuns, setIncompleteRuns);
+        getIOUS(othersRuns, setIOUS, uid);
+    }, [allRuns]);
+    //console.log("Active Runs:", activeRuns);
     console.log("Incomplete Runs:", incompleteRuns);
-    console.log("ious:",ious);
+    console.log("ious:", ious);
 
     return (
         <div>
