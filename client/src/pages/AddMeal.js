@@ -10,10 +10,22 @@ function AddMeal() {
     const [listItems, setItems] = useState([
         // DUMMY DATA FOR TESTING:
         {
-            orderItemName: "order name",
-            orderItemNotes: "there is a note here",
+            orderItemName: "Burger",
+            orderItemNotes: "extra cheese",
             orderItemQty: "2",
             orderItemPrice: "$3.25"
+        },
+        {
+            orderItemName: "Fries",
+            orderItemNotes: "",
+            orderItemQty: "1",
+            orderItemPrice: "$1.75"
+        },
+        {
+            orderItemName: "Drink",
+            orderItemNotes: "light ice",
+            orderItemQty: "1",
+            orderItemPrice: "$1.75"
         }
     ]);
     useEffect(() => {
@@ -21,8 +33,9 @@ function AddMeal() {
         // fetch from api data stuffs
     }, [])
 
+
     return (
-        <div>
+        <div className="page">
             <Navbar />
             <Jumbotron>
                 Add Meal
