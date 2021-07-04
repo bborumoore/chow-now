@@ -1,1 +1,18 @@
+.mealbox {
+  border: 1px solid var(--secondary);
+  background-color: var(--secondary-muted);
+  padding: 20px;
+  margin: 0 15px;
+}
 
+.meal-title {
+  text-align: left;
+  color: var(--dark);
+  padding-bottom: 5px;
+}
+
+.order-total-price {
+  text-align: right;
+
+  color: var(--dark);
+}
