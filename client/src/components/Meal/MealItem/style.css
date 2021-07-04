@@ -1,1 +1,37 @@
+.meal-item-row {
+  border: 1px solid var(--primary);
+  background: var(--primary-muted);
+  margin: 6px 0;
+}
 
+.item-name,
+.item-details {
+  text-align: left;
+}
+
+.item-qty,
+.item-price {
+  font-size: 1.325rem;
+}
+
+.item-price {
+  text-align: right;
+}
+
+.item-details {
+  font-size: 1.1rem;
+  color: #6f6f6f;
+  background-color: rgb(209, 240, 255);
+  padding-left: 5px;
+  margin-bottom: 5px;
+}
+
+.temp {
+  --primary-bright: #10e7dc;
+  --primary: #6cdaee;
+  --primary-muted: #b3e5fc;
+  --secondary: #0074e1;
+  --secondary-muted: #23a1eb;
+  --accent: #f79e02;
+  --dark: #2f2f2f;
+}
