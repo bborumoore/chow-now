@@ -1,7 +1,6 @@
 .mealbox {
-  border: 1px solid var(--secondary);
   background-color: var(--secondary-muted);
-  padding: 20px;
+  padding: 10px 20px 5px;
   margin: 0 15px;
 }
 
@@ -13,6 +12,5 @@
 
 .order-total-price {
   text-align: right;
-
   color: var(--dark);
 }

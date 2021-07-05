@@ -1,1 +1,14 @@
+.edit-item-icon {
+  text-align: center;
+}
 
+.edit-item-name {
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.edit-item-qty,
+.edit-item-price {
+  text-align: right;
+  text-transform: uppercase;
+}
