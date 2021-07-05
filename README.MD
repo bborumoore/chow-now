@@ -5,7 +5,7 @@
 [Chow Now Website](https://pure-fortress-22710.herokuapp.com/)
 ---
 ### Table of Contents
-- [Descritption](#description)
+- [Description](#description)
 - [How To Use](#how-to-use)
 - [Technologies](#technologies)
 - [Author Info](#author-info)
@@ -107,4 +107,5 @@ For more information, please refer to <https://unlicense.org>
 [Back to Top](#Chow-Now)
 
 ---
+
 Made by Jamie Rippee | Brain Moore | Thomas Lockwood | Claire Phillips | Marina Russ | Bryce Spraggins :sunglasses:
