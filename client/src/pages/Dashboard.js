@@ -83,7 +83,7 @@ async function getIOUS(othersRuns, iousCB, uid) {
 function Dashboard() {
 
     // Grab id passed in url
-    const { uid } = useParams();
+    // const { uid } = useParams();
 
     // Arrays to hold associated componenets.
     const [runInvites, setInvites] = useState([]);
