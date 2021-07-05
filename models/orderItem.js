@@ -18,6 +18,10 @@ const orderItemSchema = new Schema({
   orderItemCreated: {
     type: Date, 
     default: Date.now
+  },
+  orderItemQty: {
+    type: Number,
+    default: 1
   }
 });
 

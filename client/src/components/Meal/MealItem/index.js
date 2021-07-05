@@ -18,8 +18,8 @@ function MealItem({ item }) {
           <em>{item.orderItemNotes}</em>
         </div>
       </div>
-      <div className="col-1 item-qty">x{item.orderItemQty}</div>
-      <div className="col-2 item-price">{item.orderItemPrice}</div>
+      <div className="col-1 item-qty">x{item.orderItemQty ? item.orderItemQty : 1}</div>
+      <div className="col-2 item-price">{"$"+(item.orderItemPrice/100).toFixed(2)}</div>
     </div>
   );
 }
