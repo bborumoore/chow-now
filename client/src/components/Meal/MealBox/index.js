@@ -4,6 +4,9 @@ import MealItem from "../MealItem";
 
 function MealBox(props) {
 
+  // Save orderID for updating
+  const oid = props.orderID;
+
   let listItems = props.listOfItems;
 
   // add math stuffs
@@ -22,7 +25,7 @@ function MealBox(props) {
 
       {listItems.map(item => {
         return (
-          <MealItem item={item} />
+          <MealItem key={item.orderItemName} item={item} />
         )
       })}
 

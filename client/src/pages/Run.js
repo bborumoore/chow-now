@@ -26,7 +26,6 @@ async function getRunFromAPI(rid, token, restNameCB, restAddressCB, statusCB, ti
             restNameCB(res.data.restaurantName);
             restAddressCB(res.data.restaurantAddress);
             statusCB(res.data.status);
-            // timeCB(formatTime(res.data.time));
             getOrdersFromAPI(res.data,ordersCB, token, inRunCB, myMealCB);
             timeCB(formatTime(res.data.time));
         })
@@ -63,7 +62,7 @@ async function getOrdersFromAPI(run, orderCB, token, inRunCB, myMealCB) {
                         tmp_orderItems.push(res.data);
                     });
                 }
-                const tmp_myMeal = {orderName: data.orderName, orderItems: tmp_orderItems};
+                const tmp_myMeal = {orderID: order_id, orderName: data.orderName, orderItems: tmp_orderItems};
                 myMealCB(tmp_myMeal);
             }
 
@@ -156,7 +155,7 @@ function Run() {
             {orders.length > 0 ? orders : <h3>&emsp; No participants yet</h3>}
 
             <h3>My Meal:</h3>
-            {userIsInRun ? <MealBox orderName={myMeal.orderName ? myMeal.orderName : "Meal Name"} listOfItems={myMeal.orderItems} /> : false}
+            {userIsInRun ? <MealBox orderID={myMeal.orderID} orderName={myMeal.orderName ? myMeal.orderName : "Meal Name"} listOfItems={myMeal.orderItems} /> : false}
 
             {!userIsInRun && status === "started" ? <Button type="button" buttonSize="btn-lg" onClick={addUserToRun} >Add Me To Run!</Button> : false}
 
