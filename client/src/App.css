@@ -2,13 +2,16 @@
   --primary-bright: #10e7dc;
   --primary: #6cdaee;
   --primary-muted: #b3e5fc;
+  --primary-pale: #d1f0ff;
   --secondary: #0074e1;
   --secondary-muted: #23a1eb;
   --accent: #f79e02;
+  --accent-dark: #e47a01;
   --dark: #2f2f2f;
+  --nav: rgb(110, 94, 254);
+  --nav-bright: rgb(73, 63, 252);
 }
 
 .page {
-  background-image: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
-  /* #161 Salt Mountain - webgradients.com */
+  background-color: #fff;
 }
