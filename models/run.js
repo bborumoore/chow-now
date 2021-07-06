@@ -8,7 +8,6 @@ const runSchema = new Schema({
     },
     orders: [
         {
-        
             orderPaid: {
                 type: Boolean,
                 default: false
@@ -26,19 +25,19 @@ const runSchema = new Schema({
     status: {
         type: String,
         enum: ['started','ordered', 'pickedUp', 'delivered', 'completed'],
-        default : 'started' 
-    },
-    runName: {
-        type: String,
-        required : true
+        default: 'started' 
     },
     restaurantName: {
         type: String,
-        required : true
+        required: true
     },
     restaurantAddress: {
         type: String,
-        required : true
+        required: true
+    },
+    time: {
+        type: String,
+        required: true
     }
 });
 

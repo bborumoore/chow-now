@@ -39,6 +39,9 @@ function Login() {
             console.log(res.data.success);
             if (res.data.success) {
                 setInStorage('chow-now', { token: res.data.token });
+                const url = "http://" + window.location.hostname + ":" + window.location.port + "/dashboard";
+                // window.location.replace(url); // does not allow going back with back button
+                window.location.href = url; // allows going back with back button
             }
         })
 
