@@ -19,6 +19,7 @@ import HistoryBtn from "./components/HistoryBtn";
 //import { apiRequest } from "./utils/API";
 //import { LOGIN } from "./utils/auth";
 import { getFromStorage } from "./utils/storage";
+import Contact from "./pages/Contact";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -81,6 +82,9 @@ function App() {
           </Route>
           <Route exact path="/history">
             <History />
+          </Route>
+          <Route exact path="/contact">
+            <Contact />
           </Route>
           <Route>
             <NoMatch />
