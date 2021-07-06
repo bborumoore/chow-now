@@ -28,7 +28,8 @@
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
     "mongoose": "^5.12.13",
-    "mongoose-currency": "^0.2.0"
+    "mongoose-currency": "^0.2.0",
+    "node-sass": "^6.0.1"
   },
   "repository": {
     "type": "git",
