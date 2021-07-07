@@ -22,7 +22,7 @@ const orderSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['Waiting for meal','Meal placed'],
+        enum: ['Waiting for meal','Meal placed', 'Meal Payed'],
         default: 'Waiting for meal'
     },
     timesOrdered: {
