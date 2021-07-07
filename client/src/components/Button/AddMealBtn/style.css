@@ -1,0 +1,26 @@
+.add-meal-btn {
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  font-size: 1.2rem;
+  padding: 8px;
+  transition: 0.3s;
+  margin: 15px;
+}
+
+.add-meal-btn a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #000;
+  transition: 0.3s;
+}
+
+.add-meal-btn:hover {
+  background-color: var(--accent-dark);
+  border: 2px solid var(--accent-dark);
+  color: #fff;
+}
+
+.add-meal-btn:hover a {
+  color: #fff;
+}

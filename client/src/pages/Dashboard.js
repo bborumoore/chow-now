@@ -5,7 +5,9 @@ import API from "../utils/API";
 import RestaurantBox from "../components/RestaurantBox";
 import IncompleteRun from "../components/IncompleteRun";
 import Iou from "../components/Iou";
+import Navbar from "../components/Nav";
 import { getFromStorage } from "../utils/storage";
+import './dashboard.css';
 
 async function getActiveAndIncompleteRuns(myRuns, activeCB, incompleteCB) {
     let tmp_activeRuns = [];
@@ -143,29 +145,39 @@ function Dashboard() {
     console.log("ious:", ious);
 
     return (
-        <div>
-            <Jumbotron>
-                <h1>My Dashboard</h1>
-            </Jumbotron>
+        <div >
+            <div className="page dash-page">
+                <Jumbotron>
+                    <h1>My Dashboard</h1>
+                </Jumbotron>
 
-            {<Link to="/newrun" style={{ border: "3px solid black" }}>Create Run</Link>}
+                <button className="new-run-btn">
+                    {<Link to="/newrun">Create Run</Link>}
+                </button>
 
-            {runInvites.length > 0 &&
-                <div>
-                    <h3>Run Invites:</h3>
-                    {runInvites}
+                {runInvites.length > 0 &&
+                    <div>
+                        <h3>Run Invites:</h3>
+                        {runInvites}
+                    </div>
+                }
+
+                <div className="dash-run">
+                    <h3>Active Runs:</h3>
+                    {activeRuns.length > 0 ? activeRuns : <h4 className="run-state">None</h4>}
                 </div>
-            }
 
-            <h3>Active Runs:</h3>
-            {activeRuns.length > 0 ? activeRuns : <h3 style={{ border: "3px solid black" }}>None</h3>}
+                <div className="dash-run">
+                    <h3>Incomplete Runs:</h3>
+                    {incompleteRuns.length > 0 ? incompleteRuns : <h4 className="run-state">None</h4>}
+                </div>
 
-            <h3>Incomplete Runs:</h3>
-            {incompleteRuns.length > 0 ? incompleteRuns : <h3 style={{ border: "3px solid black" }}>None</h3>}
-
-            <h3>IOUs:</h3>
-            {ious.length > 0 ? ious : <h3 style={{ border: "3px solid black" }}>None</h3>}
-
+                <div className="dash-run">
+                    <h3>IOUs:</h3>
+                    {ious.length > 0 ? ious : <h4 className="run-state">None</h4>}
+                </div>
+            </div>
+            <Navbar />
         </div>
     );
 }

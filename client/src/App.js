@@ -15,41 +15,45 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Nav";
-import HistoryBtn from "./components/HistoryBtn";
+import HistoryBtn from "./components/Button/HistoryBtn";
 //import { apiRequest } from "./utils/API";
 //import { LOGIN } from "./utils/auth";
 import { getFromStorage } from "./utils/storage";
+<<<<<<< HEAD
+import "./App.css";
+=======
 import Contact from "./pages/Contact";
+>>>>>>> 3daaab0233f71e659d0826af4395342adce7b760
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [uid, setUID] = useState(-1);
-    const [token, setToken] = useState("");
-    const [isLoading, setIsLoading] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [uid, setUID] = useState(-1);
+  const [token, setToken] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
 
-    useEffect(() => {
-        const obj = getFromStorage('chow-now');
+  useEffect(() => {
+    const obj = getFromStorage('chow-now');
 
-        // Validate token **FIND A WAY TO ENSURE THIS HAPPENS AFTER RETRIEVING TOKEN**
-        // I think I did that successfully, leaving note just in case
-        if (obj && obj.token) {
-            const { token } = obj;
-            console.log(token);
-        //     fetch('/api/auth/verify?token=' + token)
-        //         .then(res => res.json())
-        //         .then(res => {
-        //             console.log(res);
-        //             setIsLoading(false);
-        //             setLoggedIn(res.success);
-                    
-        //         })
-        // } else {
-        //     setIsLoading(false);
-        }
-    }, []);
+    // Validate token **FIND A WAY TO ENSURE THIS HAPPENS AFTER RETRIEVING TOKEN**
+    // I think I did that successfully, leaving note just in case
+    if (obj && obj.token) {
+      const { token } = obj;
+      console.log(token);
+      //     fetch('/api/auth/verify?token=' + token)
+      //         .then(res => res.json())
+      //         .then(res => {
+      //             console.log(res);
+      //             setIsLoading(false);
+      //             setLoggedIn(res.success);
 
-    console.log("Logged In: " + loggedIn);
+      //         })
+      // } else {
+      //     setIsLoading(false);
+    }
+  }, []);
+
+  console.log("Logged In: " + loggedIn);
 
   return (
     <Router>

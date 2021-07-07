@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
+import Navbar from "../components/Nav";
 import API from "../utils/API";
+import './signup.css';
 
 function SignUp() {
     // Setting our component's initial state
@@ -19,20 +21,20 @@ function SignUp() {
         event.preventDefault();
 
         //Grab State
-        const email = formObject.email; 
+        const email = formObject.email;
         console.log(email);
         const password = formObject.password;
         console.log(password);
         const confirmPassword = formObject.confirmPassword;
         console.log(confirmPassword);
-        const firstName = formObject.firstName; 
+        const firstName = formObject.firstName;
         console.log(firstName);
         const lastName = formObject.lastName;
         console.log(lastName);
 
         // Confirm that passwords match
         if (password === confirmPassword) {
-        
+
             // Post request to backend to create user
             API.signup(
                 {
@@ -43,20 +45,20 @@ function SignUp() {
                 }
                 //NOTE: If this isn't working go to 1:12:13 of video for troubleshooting, may need to change header of request
             ).then(res => {
-                    setErr({
-                        err: res.message
-                    });
-                    console.log(err);
-                    if (res.sucess) {
-                        setFormObject({
-                            firstName: '',
-                            lastName: '',
-                            password: '',
-                            email: '',
-                            confirmPassword: ''
-                        })
-                    }
-                })
+                setErr({
+                    err: res.message
+                });
+                console.log(err);
+                if (res.sucess) {
+                    setFormObject({
+                        firstName: '',
+                        lastName: '',
+                        password: '',
+                        email: '',
+                        confirmPassword: ''
+                    })
+                }
+            })
 
         } else {
             return res.send("Passwords must match.")
@@ -100,7 +102,7 @@ function SignUp() {
                     Sign Up
                 </FormBtn>
             </form>
-        </div>
+        </div >
     );
 }
 

@@ -1,1 +1,6 @@
-
+.meal-edit-box {
+  border: 2px solid var(--primary);
+  background-color: #fff;
+  padding: 2px;
+  margin: 4px 15px;
+}
