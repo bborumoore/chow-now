@@ -14,16 +14,14 @@ import Run from "./pages/Run";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import NoMatch from "./pages/NoMatch";
+import Contact from "./pages/Contact";
 import Navbar from "./components/Nav";
 import HistoryBtn from "./components/Button/HistoryBtn";
 //import { apiRequest } from "./utils/API";
 //import { LOGIN } from "./utils/auth";
 import { getFromStorage } from "./utils/storage";
-<<<<<<< HEAD
 import "./App.css";
-=======
-import Contact from "./pages/Contact";
->>>>>>> 3daaab0233f71e659d0826af4395342adce7b760
+import "./styles/app.scss";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
