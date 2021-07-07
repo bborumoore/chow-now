@@ -1,0 +1,46 @@
+.dash-page {
+  padding: 10px 30px;
+}
+
+.dash-run {
+  background-color: var(--secondary-muted);
+  padding: 5px;
+  margin: 10px 0;
+  transition: 0.3s;
+}
+
+.run-state {
+  background-color: var(--primary-muted);
+  padding: 2px;
+  transition: 0.15s;
+}
+
+.dash-run:hover .run-state {
+  background-color: var(--primary);
+}
+
+.new-run-btn {
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  font-size: 1.2rem;
+  padding: 8px;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+.new-run-btn a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #000;
+  transition: 0.3s;
+}
+
+.new-run-btn:hover {
+  background-color: var(--accent-dark);
+  border: 2px solid var(--accent-dark);
+}
+
+.new-run-btn:hover a {
+  color: #fff;
+}

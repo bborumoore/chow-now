@@ -1,0 +1,16 @@
+.new-run-created-text {
+  background: var(--primary-muted);
+  padding: 10px;
+}
+
+.incomplete-run {
+  background-color: var(--primary-pale);
+  padding: 10px 25px;
+}
+
+.invite-link {
+  padding: 20px;
+  margin: 10px;
+  font-size: 25px;
+  color: var(--nav-bright);
+}
