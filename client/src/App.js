@@ -20,7 +20,6 @@ import HistoryBtn from "./components/Button/HistoryBtn";
 //import { apiRequest } from "./utils/API";
 //import { LOGIN } from "./utils/auth";
 import { getFromStorage } from "./utils/storage";
-import "./App.css";
 import "./styles/app.scss";
 
 function App() {
