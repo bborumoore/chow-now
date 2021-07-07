@@ -12,7 +12,7 @@ export const MenuItems = [
     },
     {
         title: "Dashboard",
-        url: '/dashboard/:id', 
+        url: '/dashboard', 
         cName: 'nav-links'
     },
     {
