@@ -11,7 +11,9 @@ function History() {
 
     return (
         <div>
-            <p>History Page</p>
+            <Jumbotron>
+                <h1>History Page</h1>
+            </Jumbotron>
             <EditMeal />
             <SaveMeal />
         </div>
