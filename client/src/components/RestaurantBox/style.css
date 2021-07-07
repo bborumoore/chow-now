@@ -1,6 +1,6 @@
 .restaurant-container {
-  background: var(--secondary-muted);
-  padding: 15px 25px;
+  background: var(--primary-muted);
+  padding: 10px;
   margin-bottom: 10px;
 }
 
