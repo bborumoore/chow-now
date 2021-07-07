@@ -1,32 +1,44 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./style.css";
 import MealItem from "../MealItem";
+import MealEditItem from "../MealEdit/MealEditItem";
+import { Button } from "../../Button/Button";
 
 function MealBox(props) {
-
+  // Save orderID for updating
+  const oid = props.orderID;
   let listItems = props.listOfItems;
+
+  // State
+  const [displayAddItemMenu, setDisplayAddItemMenu] = useState(false);
+  function setDisplayAddItemMenuCB() {
+    setDisplayAddItemMenu(true);
+  }
 
   // add math stuffs
   let orderTotal = 0;
   for (let iOrder = 0; iOrder < listItems.length; iOrder++) {
-    let price = listItems[iOrder].orderItemPrice.replace("$", "");
-    let qty = listItems[iOrder].orderItemQty;
+    let price = listItems[iOrder].orderItemPrice/100;
+    let qty = listItems[iOrder].orderItemQty ? listItems[iOrder].orderItemQty : 1;
 
     orderTotal += parseFloat(price) * qty;
   }
 
   return (
     <div className="mealbox">
-      <h2 className="meal-title">#6 Deluxe {props.orderMealName}</h2>
-      <div className="list-items">
+      <h2 className="meal-title">{props.orderName}</h2>
 
+      <div className="list-items">
         {listItems.map(item => {
           return (
-            <MealItem item={item} />
+            <MealItem key={item.orderItemName} item={item} />
           )
         })}
       </div>
-      <h2 className="order-total-price">${orderTotal.toFixed(2)}</h2>
+
+      { displayAddItemMenu ? <MealEditItem oid={oid} /> : false }
+      { !displayAddItemMenu ? <Button type="button" buttonSize="btn-lg" onClick={setDisplayAddItemMenuCB} >+ Add Item</Button> : false }
+      <h2 className="order-total-price">My total: ${orderTotal.toFixed(2)}</h2>
     </div>
   );
 }
