@@ -3,6 +3,7 @@ import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
 import { setInStorage } from "../utils/storage";
+import './login.css';
 
 function Login() {
     // Setting our component's initial state

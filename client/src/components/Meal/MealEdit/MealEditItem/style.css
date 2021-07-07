@@ -1,1 +1,29 @@
+input {
+  color: #6f6f6f;
+  background-color: rgb(209, 240, 255);
+  border: 0px solid;
+  padding: 3px 5px;
+}
 
+.item-add-btn {
+  background-color: var(--nav);
+  border: 2px solid var(--nav);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  padding: 3px;
+  transition: 0.3s;
+  margin-bottom: 3px;
+}
+
+.item-add-btn a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #000;
+  transition: 0.3s;
+}
+
+.item-add-btn:hover {
+  background-color: var(--nav-bright);
+  border: 2px solid var(--nav-bright);
+}

@@ -5,7 +5,7 @@ import "./style.css";
 
 // TODO: is input's prop done correctly?
 
-function MealItemEdit(props) {
+function MealEditItem(props) {
   // Get order ID
   const oid = props.oid;
 
@@ -105,7 +105,7 @@ function MealItemEdit(props) {
         </div>
       </div>
 
-      <div className="btn-item-add">
+      <div>
         <div className="row">
           <div className="col-7">&nbsp;</div>
           <div className="col-4">
@@ -117,4 +117,4 @@ function MealItemEdit(props) {
   );
 }
 
-export default MealItemEdit;
+export default MealEditItem;

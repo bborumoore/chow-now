@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import "./style.css";
 import MealItem from "../MealItem";
 import MealEditItem from "../MealEdit/MealEditItem";
-import { Button } from "../../Button";
+import { Button } from "../../Button/Button";
 
 function MealBox(props) {
   // Save orderID for updating
@@ -25,14 +25,16 @@ function MealBox(props) {
   }
 
   return (
-    <div style={{ textAlign: "center" }} className="mealbox">
-      <h2>{props.orderName}</h2>
+    <div className="mealbox">
+      <h2 className="meal-title">{props.orderName}</h2>
 
-      {listItems.map(item => {
-        return (
-          <MealItem key={item.orderItemName} item={item} />
-        )
-      })}
+      <div className="list-items">
+        {listItems.map(item => {
+          return (
+            <MealItem key={item.orderItemName} item={item} />
+          )
+        })}
+      </div>
 
       { displayAddItemMenu ? <MealEditItem oid={oid} /> : false }
       { !displayAddItemMenu ? <Button type="button" buttonSize="btn-lg" onClick={setDisplayAddItemMenuCB} >+ Add Item</Button> : false }
