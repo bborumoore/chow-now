@@ -5,7 +5,7 @@ import React from "react";
 export function Input(props) {
   return (
     <div className="form-group">
-      <input className="form-control" {...props} />
+      <input className="form-control" style={{ marginTop: 5, marginBottom: 8, maxWidth: 400 }} {...props} />
     </div>
   );
 }
@@ -20,7 +20,7 @@ export function TextArea(props) {
 
 export function FormBtn(props) {
   return (
-    <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
+    <button {...props} style={{ float: "right", marginBottom: 10, marginTop: 5 }} className="btn btn-success">
       {props.children}
     </button>
   );
