@@ -3,7 +3,7 @@ import "./style.css";
 
 // TODO: is input's prop done correctly?
 
-function MealItemEdit(props) {
+function MealEditItem(props) {
   return (
     <div className="row add-item-row">
       <div className="item-info">
@@ -12,9 +12,8 @@ function MealItemEdit(props) {
             <i>❌</i>
           </div>
           <div className="col-7 item-name add">
-            Sprite {props.orderItemName}
-            <input type="text" placeholder="Add additional notes here" />{" "}
-            Notes are here {props.orderItemNotes}
+            <h4 style={{ "margin": "1px", "padding": "3px" }}>Sprite {props.orderItemName}</h4>
+            <input type="text" placeholder="Add additional notes here" style={{ "width": "95%", "fontStyle": "italic" }} />{" "}<em>{props.orderItemNotes}</em>
           </div>
 
           <div className="col-1 item-qty">x{props.orderItemQty}</div>
@@ -22,11 +21,11 @@ function MealItemEdit(props) {
         </div>
       </div>
 
-      <div className="btn-item-add">
+      <div>
         <div className="row">
           <div className="col-7">&nbsp;</div>
           <div className="col-4">
-            <button className="btn-add-item">+ Add Item</button>
+            <button className="item-add-btn">Add Item</button>
           </div>
         </div>
       </div>
@@ -34,4 +33,4 @@ function MealItemEdit(props) {
   );
 }
 
-export default MealItemEdit;
+export default MealEditItem;

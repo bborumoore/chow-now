@@ -6,16 +6,16 @@ function MealEditItemHeader(props) {
     <div className="edit-item-header">
       <div className="row">
         <div className="col-1 edit-item-icon">
-          <i>✏</i>
+          <i>&nbsp;</i>
         </div>
         <div className="col-7 edit-item-name">
-          <h3>ITEM NAME:</h3>
+          <h6>Item Name:</h6>
         </div>
         <div className="col-1 edit-item-qty">
-          <h3>QTY:</h3>
+          <h6>Qty:</h6>
         </div>
         <div className="col-2 edit-item-price">
-          <h3>UNIT:</h3>
+          <h6>Unit:</h6>
         </div>
       </div>
     </div>

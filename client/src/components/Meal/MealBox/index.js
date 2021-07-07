@@ -16,16 +16,16 @@ function MealBox(props) {
   }
 
   return (
-    <div style={{ textAlign: "center" }} className="mealbox">
-      <h2>#6 Deluxe {props.orderMealName}</h2>
+    <div className="mealbox">
+      <h2 className="meal-title">#6 Deluxe {props.orderMealName}</h2>
+      <div className="list-items">
 
-
-      {listItems.map(item => {
-        return (
-          <MealItem item={item} />
-        )
-      })}
-
+        {listItems.map(item => {
+          return (
+            <MealItem item={item} />
+          )
+        })}
+      </div>
       <h2 className="order-total-price">${orderTotal.toFixed(2)}</h2>
     </div>
   );
