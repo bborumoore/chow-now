@@ -55,7 +55,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className="page">
         <Switch>
           <Route exact path="/">
             <Homepage />
