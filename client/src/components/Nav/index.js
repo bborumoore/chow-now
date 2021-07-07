@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { MenuItems } from './MenuItems';
-<<<<<<< HEAD
 import { Button } from '../Button/Button';
-=======
->>>>>>> 3daaab0233f71e659d0826af4395342adce7b760
 import './Navbar.css';
-
 
 class Navbar extends Component {
     state = { clicked: false }
@@ -38,4 +34,4 @@ class Navbar extends Component {
 }
 
 
-export default Navbar 
+export default Navbar
