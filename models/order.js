@@ -20,6 +20,11 @@ const orderSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    status: {
+        type: String,
+        enum: ['Waiting for meal','Meal placed', 'Meal Payed'],
+        default: 'Waiting for meal'
+    },
     timesOrdered: {
         type: Number,
         default: 0
