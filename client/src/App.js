@@ -19,11 +19,8 @@ import HistoryBtn from "./components/Button/HistoryBtn";
 //import { apiRequest } from "./utils/API";
 //import { LOGIN } from "./utils/auth";
 import { getFromStorage } from "./utils/storage";
-<<<<<<< HEAD
 import "./App.css";
-=======
 import Contact from "./pages/Contact";
->>>>>>> 3daaab0233f71e659d0826af4395342adce7b760
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
