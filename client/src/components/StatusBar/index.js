@@ -11,7 +11,7 @@ function StatusBar(props) {
             status = "Taking Orders";
             time = "Place by " + time;
             bar = <div className="row">
-                <div className="status-bar col-3" style={{ "backgroundColor": "gray" }}></div>
+                <div className="status-bar col-3" style={{ "backgroundColor": "var(--secondary)" }}></div>
                 <div className="status-bar col-3" style={{ "backgroundColor": "white" }}></div>
                 <div className="status-bar col-3" style={{ "backgroundColor": "white" }}></div>
                 <div className="status-bar col-3" style={{ "backgroundColor": "white" }}></div>
@@ -20,8 +20,8 @@ function StatusBar(props) {
         case "ordered":
             status = "Order Placed";
             bar = <div className="row">
-                <div className="status-bar col-3" style={{ "backgroundColor": "gray" }}></div>
-                <div className="status-bar col-3" style={{ "backgroundColor": "gray" }}></div>
+                <div className="status-bar col-3" style={{ "backgroundColor": "var(--secondary)" }}></div>
+                <div className="status-bar col-3" style={{ "backgroundColor": "var(--secondary)" }}></div>
                 <div className="status-bar col-3" style={{ "backgroundColor": "white" }}></div>
                 <div className="status-bar col-3" style={{ "backgroundColor": "white" }}></div>
             </div>;
@@ -29,19 +29,19 @@ function StatusBar(props) {
         case "pickedUp":
             status = "Food Picked Up";
             bar = <div className="row">
-                <div className="status-bar col-3" style={{ "backgroundColor": "gray" }}></div>
-                <div className="status-bar col-3" style={{ "backgroundColor": "gray" }}></div>
-                <div className="status-bar col-3" style={{ "backgroundColor": "gray" }}></div>
+                <div className="status-bar col-3" style={{ "backgroundColor": "var(--secondary)" }}></div>
+                <div className="status-bar col-3" style={{ "backgroundColor": "var(--secondary)" }}></div>
+                <div className="status-bar col-3" style={{ "backgroundColor": "var(--secondary)" }}></div>
                 <div className="status-bar col-3" style={{ "backgroundColor": "white" }}></div>
             </div>;
             break;
         case "delivered":
             status = "Food Delivered";
             bar = <div className="row">
-                <div className="status-bar col-3" style={{ "backgroundColor": "gray" }}></div>
-                <div className="status-bar col-3" style={{ "backgroundColor": "gray" }}></div>
-                <div className="status-bar col-3" style={{ "backgroundColor": "gray" }}></div>
-                <div className="status-bar col-3" style={{ "backgroundColor": "gray" }}></div>
+                <div className="status-bar col-3" style={{ "backgroundColor": "var(--secondary)" }}></div>
+                <div className="status-bar col-3" style={{ "backgroundColor": "var(--secondary)" }}></div>
+                <div className="status-bar col-3" style={{ "backgroundColor": "var(--secondary)" }}></div>
+                <div className="status-bar col-3" style={{ "backgroundColor": "var(--secondary)" }}></div>
             </div>;
             break;
         default:

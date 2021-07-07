@@ -6,6 +6,7 @@ import StatusBar from "../components/StatusBar";
 import { Button } from "../components/Button/Button";
 import API from "../utils/API.js";
 import { getFromStorage } from "../utils/storage";
+import "./../styles/app.scss";
 
 function formatTime(fourDigitTime) {
     var hours24 = parseInt(fourDigitTime.substring(0, 2));
@@ -116,7 +117,7 @@ function Run() {
         <div>
             <RestaurantBox restaurant_name={restaurant_name} address={restaurant_address} run_id={id} />
             <StatusBar status={status} time={time} />
-            <h3><a id="inviteLink"
+            <h3><a className="invite-link" id="inviteLink"
                 href={window.location.hostname + ":" + window.location.port + "/run/" + id}
                 onClick={copyToClipboard}
                 style={{ "color": "#000" }}>

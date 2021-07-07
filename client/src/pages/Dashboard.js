@@ -7,7 +7,7 @@ import IncompleteRun from "../components/IncompleteRun";
 import Iou from "../components/Iou";
 import Navbar from "../components/Nav";
 import { getFromStorage } from "../utils/storage";
-import './dashboard.css';
+import "./../styles/app.scss";
 
 async function getActiveAndIncompleteRuns(myRuns, activeCB, incompleteCB) {
     let tmp_activeRuns = [];
@@ -146,7 +146,7 @@ function Dashboard() {
 
     return (
         <div >
-            <div className="page dash-page">
+            <div className="dash-page">
                 <Jumbotron>
                     <h1>My Dashboard</h1>
                 </Jumbotron>
@@ -177,7 +177,6 @@ function Dashboard() {
                     {ious.length > 0 ? ious : <h4 className="run-state">None</h4>}
                 </div>
             </div>
-            <Navbar />
         </div>
     );
 }
