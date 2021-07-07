@@ -195,7 +195,7 @@ function Run() {
             {orders.length > 0 ? orders : <h3>&emsp; No participants yet</h3>}
 
             <h3>My Meal:</h3>
-            {userIsInRun ? <MealBox orderID={myMeal.orderID} orderName={myMeal.orderName ? myMeal.orderName : "Meal Name"} listOfItems={myMeal.orderItems} /> : false}
+            {userIsInRun ? <MealBox runStatus={status} orderID={myMeal.orderID} orderName={myMeal.orderName ? myMeal.orderName : "Meal Name"} listOfItems={myMeal.orderItems} /> : false}
 
             {!userIsInRun && status === "started" ? <Button type="button" buttonSize="btn-lg" onClick={addUserToRun} >Add Me To Run!</Button> : false}
 
