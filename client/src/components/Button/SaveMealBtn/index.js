@@ -3,7 +3,7 @@ import { Link, useRouteMatch, Router } from "react-router-dom";
 import "./index.css";
 
 
-function SaveMeal (props) {
+function SaveMealBtn (props) {
 
     let match = useRouteMatch();
   
@@ -18,4 +18,4 @@ function SaveMeal (props) {
     );
   }
   
-  export default SaveMeal;
+  export default SaveMealBtn;

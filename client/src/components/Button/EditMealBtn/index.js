@@ -3,7 +3,7 @@ import { Link, useRouteMatch, Router } from "react-router-dom";
 import "./index.css";
 
 
-function EditMeal (props) {
+function EditMealBtn (props) {
 
     let match = useRouteMatch();
   
@@ -18,4 +18,4 @@ function EditMeal (props) {
     );
   }
   
-  export default EditMeal;
+  export default EditMealBtn;

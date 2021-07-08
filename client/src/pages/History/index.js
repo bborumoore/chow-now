@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { useParams } from "react-router-dom";
-import EditMeal from "../../components/EditMeal";
-import SaveMeal from "../../components/SaveMeal";
+import EditMealBtn from "../../components/Button/EditMealBtn";
+import SaveMealBtn from "../../components/Button/SaveMealBtn";
 import API from "../../utils/API";
 import "./style.css"
 
@@ -88,8 +88,8 @@ function History() {
             <h1>{run.status}</h1>
             <h1>{run.restaurantName}</h1>
             <h1>{run.restaurantAddress}</h1>
-            <EditMeal />
-            <SaveMeal />
+            <EditMealBtn />
+            <SaveMealBtn />
           </div>
         );
         
