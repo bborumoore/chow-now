@@ -3,19 +3,19 @@ import { Link, useRouteMatch, Router } from "react-router-dom";
 import "./index.css";
 
 
-function EditMeal (props) {
+function SaveMealBtn (props) {
 
     let match = useRouteMatch();
   
     return (
-   
-        <button className="editmeal">
-          <a href={`/editmeal`}>
-            <h1>Edit Meal</h1>
-            <i className="fas fa-edit"></i>
+     
+        <button className="savemeal">
+          <a href={`/savemeal`}>
+            <h1>Save Meal</h1>
+            <i className="fas fa-heart"></i>
           </a>  
         </button>
     );
   }
   
-  export default EditMeal;
+  export default SaveMealBtn;
