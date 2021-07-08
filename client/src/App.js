@@ -11,7 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import NewRun from "./pages/NewRun";
 import AddMeal from "./pages/AddMeal";
 import Run from "./pages/Run";
-// import Login from "./pages/Login";
+import EditMeal from "./pages/EditMeal";
 // import SignUp from "./pages/SignUp";
 import Auth from "./pages/AuthPage";
 import NoMatch from "./pages/NoMatch";
@@ -82,6 +82,9 @@ function App() {
           </Route>
           <Route exact path="/history">
             <History />
+          </Route>
+          <Route exact path="/editmeal">
+            <EditMeal />
           </Route>
           <Route exact path="/contact">
             <Contact />
