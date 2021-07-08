@@ -6,7 +6,6 @@ import API from "../utils/API";
 import RestaurantBox from "../components/RestaurantBox";
 import IncompleteRun from "../components/IncompleteRun";
 import Iou from "../components/Iou";
-import Navbar from "../components/Nav";
 import { getFromStorage } from "../utils/storage";
 import "./../styles/app.scss";
 
