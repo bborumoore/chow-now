@@ -9,18 +9,20 @@ mongoose.connect(
   { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
 );
 
+
+// PlainText Password is asdf1234
 const chowSeed = [
   {
     firstName: "Thomas",
     lastName: "Lockwood",
-    password: "asdf1234",
+    password: "$2b$08$0nUfV7KhY7uaAAXwDRDOL.6QsYvRM/nmQK1IxCvOl1iFywEbDp.O2",
     email: "test@test.com",
     broadcastNote: "string"
   },
   {
     firstName: "Brian",
     lastName: "Moore",
-    password: "asdf1234",
+    password: "$2b$08$0nUfV7KhY7uaAAXwDRDOL.6QsYvRM/nmQK1IxCvOl1iFywEbDp.O2",
     email: "test1@test1.com",
     broadcastNote: "string"
   }

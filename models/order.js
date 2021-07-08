@@ -20,6 +20,11 @@ const orderSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    status: {
+        type: String,
+        enum: ['waiting','placed', 'payed'],
+        default: 'waiting'
+    },
     timesOrdered: {
         type: Number,
         default: 0

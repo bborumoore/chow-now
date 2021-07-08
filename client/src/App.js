@@ -11,8 +11,9 @@ import Dashboard from "./pages/Dashboard";
 import NewRun from "./pages/NewRun";
 import AddMeal from "./pages/AddMeal";
 import Run from "./pages/Run";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+// import Login from "./pages/Login";
+// import SignUp from "./pages/SignUp";
+import Auth from "./pages/AuthPage";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Nav";
 import HistoryBtn from "./components/Button/HistoryBtn";
@@ -71,15 +72,12 @@ function App() {
           <Route exact path="/run/:id">
             <Run />
           </Route>
-          <Route exact path="/login">
+          <Route exact path="/auth">
             {loggedIn ? (
               <Redirect to="/" />
             ) : (
-              <Login loginCB={setLoggedIn} uidCB={setUID} />
+              <Auth loginCB={setLoggedIn} uidCB={setUID} />
             )}
-          </Route>
-          <Route exact path="/signup">
-            <SignUp />
           </Route>
           <Route exact path="/history">
             <History />
