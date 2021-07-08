@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Navbar from "../components/Nav";
 import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
 import { setInStorage } from "../utils/storage";
@@ -50,6 +51,7 @@ function Login() {
 
     return (
         <div>
+            <Navbar />
             <Jumbotron>
                 <h1>Login</h1>
             </Jumbotron>

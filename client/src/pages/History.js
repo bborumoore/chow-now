@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
 import { useParams } from "react-router-dom";
 import EditMeal from "../components/Button/EditMeal"
@@ -11,6 +12,7 @@ function History() {
 
     return (
         <div>
+            <Navbar />
             <Jumbotron>
                 <h1>History Page</h1>
             </Jumbotron>

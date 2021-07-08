@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Navbar from "../components/Nav";
 import { useParams } from "react-router-dom";
 import RestaurantBox from "../components/RestaurantBox";
 import UserOrder from "../components/UserOrder";
@@ -45,41 +46,41 @@ async function getOrdersFromAPI(run, orderCB, token, inRunCB, myMealCB) {
     for (let iOrder = 0; iOrder < order_ids.length; iOrder++) {
         const order_id = order_ids[iOrder];
         await API.getOrder(order_id)
-        .then((res) => res.data)
-        .then(async (data) => {
-            const orders_user = data.user;
+            .then((res) => res.data)
+            .then(async (data) => {
+                const orders_user = data.user;
 
-            // Check if the current order is the users
-            if( orders_user === token ) {
-                // If it is, then the user is in the run
-                inRunCB(true);
+                // Check if the current order is the users
+                if (orders_user === token) {
+                    // If it is, then the user is in the run
+                    inRunCB(true);
 
-                // Reconstruct the user's order into a simple JSON object with the order's name and items
-                const orderItemIds = data.orderItems;
-                let tmp_orderItems = [];
-                for(let iItem = 0; iItem < orderItemIds.length; iItem++){
-                    await API.getOrderItem(orderItemIds[iItem])
-                    .then((res) => {
-                        tmp_orderItems.push(res.data);
-                    });
+                    // Reconstruct the user's order into a simple JSON object with the order's name and items
+                    const orderItemIds = data.orderItems;
+                    let tmp_orderItems = [];
+                    for (let iItem = 0; iItem < orderItemIds.length; iItem++) {
+                        await API.getOrderItem(orderItemIds[iItem])
+                            .then((res) => {
+                                tmp_orderItems.push(res.data);
+                            });
+                    }
+                    const tmp_myMeal = { orderID: order_id, orderName: data.orderName, orderItems: tmp_orderItems };
+                    myMealCB(tmp_myMeal);
                 }
-                const tmp_myMeal = {orderID: order_id, orderName: data.orderName, orderItems: tmp_orderItems};
-                myMealCB(tmp_myMeal);
-            }
 
-            // Get the order's total and status
-            const order_total = (data.orderTotal/100).toFixed(2);
-            const order_status = data.status;
+                // Get the order's total and status
+                const order_total = (data.orderTotal / 100).toFixed(2);
+                const order_status = data.status;
 
-            // Get the user's name
-            await API.getUser(orders_user)
-            .then((res) => {
-                const user_name = res.data.firstName;
+                // Get the user's name
+                await API.getUser(orders_user)
+                    .then((res) => {
+                        const user_name = res.data.firstName;
 
-                // Create the React component that will display the relevant info
-                orders.push(<UserOrder key={user_name} name={user_name} total={order_total} status={order_status} />);
+                        // Create the React component that will display the relevant info
+                        orders.push(<UserOrder key={user_name} name={user_name} total={order_total} status={order_status} />);
+                    });
             });
-        });
     }
     orderCB(orders);
 }
@@ -144,6 +145,7 @@ function Run() {
 
     return (
         <div>
+            <Navbar />
             <RestaurantBox restaurant_name={restaurant_name} address={restaurant_address} run_id={id} />
             <StatusBar status={status} time={time} />
             <h3><a className="invite-link" id="inviteLink"

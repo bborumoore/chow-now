@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Navbar from "../components/Nav";
 import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
 import { getFromStorage } from "../utils/storage";
@@ -49,6 +50,7 @@ function NewRun() {
 
     return (
         <div>
+            <Navbar />
             <Jumbotron>
                 <h1>New Run</h1>
             </Jumbotron>
