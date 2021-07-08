@@ -22,12 +22,7 @@ export const MenuItems = [
     },
     {
         title: "Login",
-        url: '/login', 
+        url: '/Auth', 
         cName: 'nav-links'
-    },
-    {
-        title: "Sign up",
-        url: '/SignUp', 
-        cName: 'nav-links' 
-    },
+    }
 ]
