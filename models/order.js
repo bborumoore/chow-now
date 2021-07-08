@@ -22,8 +22,8 @@ const orderSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['Waiting for meal','Meal placed', 'Meal Payed'],
-        default: 'Waiting for meal'
+        enum: ['waiting','placed', 'payed'],
+        default: 'waiting'
     },
     timesOrdered: {
         type: Number,
