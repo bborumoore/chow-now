@@ -141,10 +141,50 @@ function Run() {
             });
     }
 
+    function updateStatus() {
+        let newStatus = "ordered";
+        switch(status) {
+            case "ordered":
+                newStatus = "pickedUp";
+                break;
+            case "pickedUp":
+                newStatus = "delivered";
+                break;
+            case "delivered":
+                newStatus = "completed";
+                break;
+        }
+
+        const d = new Date();
+        const newTime = d.getHours() + ":" + d.getMinutes();
+        API.updateRun(id,
+            {
+                status: newStatus,
+                time: newTime
+            })
+            .then((res) => {
+                window.location.reload();
+            })
+    }
+
+    // Decide which type of button to display at bottom
+    let updateStatusButtonText = "Place Order";
+    switch(status){
+        case "ordered":
+            updateStatusButtonText = "Picked Up";
+            break;
+        case "pickedUp":
+            updateStatusButtonText = "Mark Delivered";
+            break;
+        case "delivered":
+            updateStatusButtonText = "Mark Completed";
+            break;
+    }
+
     return (
         <div>
             <RestaurantBox restaurant_name={restaurant_name} address={restaurant_address} run_id={id} />
-            <StatusBar status={status} time={time} />
+            { status != "completed" ? <StatusBar status={status} time={time} /> : false}
             <h3><a id="inviteLink"
                 href={window.location.hostname + ":" + window.location.port + "/run/" + id}
                 onClick={copyToClipboard}
@@ -155,15 +195,12 @@ function Run() {
             {orders.length > 0 ? orders : <h3>&emsp; No participants yet</h3>}
 
             <h3>My Meal:</h3>
-            {userIsInRun ? <MealBox orderID={myMeal.orderID} orderName={myMeal.orderName ? myMeal.orderName : "Meal Name"} listOfItems={myMeal.orderItems} /> : false}
+            {userIsInRun ? <MealBox runStatus={status} orderID={myMeal.orderID} orderName={myMeal.orderName ? myMeal.orderName : "Meal Name"} listOfItems={myMeal.orderItems} /> : false}
 
             {!userIsInRun && status === "started" ? <Button type="button" buttonSize="btn-lg" onClick={addUserToRun} >Add Me To Run!</Button> : false}
 
-            {isRunner && status === "started" && orders.length > 0 ? <h3>Place Order</h3> : false}
-            {isRunner && status === "ordered" ? <h3>Picked Up</h3> : false}
-            {isRunner && status === "pickedUp" ? <h3>Mark Delivered</h3> : false}
-            {isRunner && status === "delivered" ? <h3>Mark Completed</h3> : false}
-            {isRunner && status === "completed" ? <h3>Completed!</h3> : false}
+            {isRunner && status != "completed" ? <Button type="button" buttonSize="btn-lg" onClick={updateStatus} >{updateStatusButtonText}</Button> : false}
+            {status === "completed" ? <h3>Completed!</h3> : false}
         </div>
     );
 }
