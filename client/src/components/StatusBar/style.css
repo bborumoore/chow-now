@@ -1,4 +1,11 @@
-.col-3 {
-    height: 20px;
-    border: 3px solid black;
+.status-bar {
+  height: 30px;
+  border-top: 3px solid var(--dark);
+  border-bottom: 3px solid var(--dark);
+  border-left: 3px solid var(--dark);
+  margin-bottom: 15px;
+}
+
+.status-bar:last-child {
+  border-right: 3px solid var(--dark);
 }

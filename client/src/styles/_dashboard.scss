@@ -15,14 +15,6 @@
   transition: 0.15s;
 }
 
-.dash-run:hover {
-  background-color: var(--secondary);
-}
-
-.dash-run:hover h3 {
-  color: white;
-}
-
 .dash-run:hover .run-state {
   background-color: var(--primary);
 }

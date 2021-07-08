@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
-import Navbar from "../components/Nav";
 import API from "../utils/API";
-import './signup.css';
 
 function SignUp() {
     // Setting our component's initial state

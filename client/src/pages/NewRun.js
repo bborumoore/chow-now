@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Jumbotron from "../components/Jumbotron";
-import {Input, FormBtn} from "../components/Form";
+import Navbar from "../components/Nav";
+import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
 import { getFromStorage } from "../utils/storage";
-import { Redirect } from "react-router";
+import "./../styles/app.scss";
 
 function NewRun() {
     // Get token/uid from local storage
@@ -71,7 +72,7 @@ function NewRun() {
                     <h4>Order time: &emsp; Today at <Input onChange={handleInputChange} name="orderTime" type="time" /></h4>
                 </div>
 
-                <h5>Once the run is created, you will be given a link you can send to invite others!</h5>
+                <h5 className="new-run-created-text">Once the run is created, you will be given a link you can send to invite others!</h5>
 
                 <FormBtn onClick={handleFormSubmit}>
                     Create Run

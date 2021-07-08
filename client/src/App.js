@@ -15,13 +15,13 @@ import EditMeal from "./pages/EditMeal";
 // import SignUp from "./pages/SignUp";
 import Auth from "./pages/AuthPage";
 import NoMatch from "./pages/NoMatch";
+import Contact from "./pages/Contact";
 import Navbar from "./components/Nav";
 import HistoryBtn from "./components/Button/HistoryBtn";
 //import { apiRequest } from "./utils/API";
 //import { LOGIN } from "./utils/auth";
 import { getFromStorage } from "./utils/storage";
-import "./App.css";
-import Contact from "./pages/Contact";
+import "./styles/app.scss";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -55,7 +55,8 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className="page">
+      <Navbar />
         <Switch>
           <Route exact path="/">
             <Homepage />
@@ -93,7 +94,7 @@ function App() {
           </Route>
         </Switch>
         <HistoryBtn />
-        <Navbar />
+       
       </div>
     </Router>
   );

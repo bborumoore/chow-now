@@ -3,7 +3,7 @@ import Jumbotron from "../components/Jumbotron";
 
 function Contact() {
     return (
-        <div>
+        <div>           
             <Jumbotron>
                 <h1>Contact Us!</h1>
                 <h3>Github Profiles:</h3>
