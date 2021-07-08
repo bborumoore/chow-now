@@ -4,7 +4,6 @@ import Navbar from "../components/Nav";
 import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
 import { getFromStorage } from "../utils/storage";
-import { Redirect } from "react-router";
 import "./../styles/app.scss";
 
 function NewRun() {
@@ -50,7 +49,6 @@ function NewRun() {
 
     return (
         <div>
-            <Navbar />
             <Jumbotron>
                 <h1>New Run</h1>
             </Jumbotron>

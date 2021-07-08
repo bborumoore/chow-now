@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
-import Navbar from "../components/Nav";
 import MealBox from "../components/Meal/MealBox";
 import AddMealBtn from "../components/Button/AddMealBtn";
-
-
-import MealEditItem from "../components/Meal/MealEdit/MealEditItem";
-import MealEditItemHeader from "../components/Meal/MealEdit/MealEditItemHeader";
-import MealEditBox from "../components/Meal/MealEdit/MealEditBox";
 
 function AddMeal() {
 
@@ -40,7 +34,6 @@ function AddMeal() {
 
     return (
         <div className="page">
-            <Navbar />
             <Jumbotron>
                 <h1>Add Meal</h1>
             </Jumbotron>

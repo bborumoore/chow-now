@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
-import Navbar from "../components/Nav";
 import { Link, useParams } from "react-router-dom";
 import API from "../utils/API";
 import RestaurantBox from "../components/RestaurantBox";
@@ -147,7 +146,6 @@ function Dashboard() {
     return (
         <div >
             <div className="dash-page">
-                <Navbar />
                 <Jumbotron>
                     <h1>My Dashboard</h1>
                 </Jumbotron>

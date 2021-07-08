@@ -1,11 +1,9 @@
 import React from "react";
-import Navbar from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
 
 function Contact() {
     return (
-        <div>
-            <Navbar />
+        <div>           
             <Jumbotron>
                 <h1>Contact Us!</h1>
                 <h3>Github Profiles:</h3>

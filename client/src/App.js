@@ -56,6 +56,7 @@ function App() {
   return (
     <Router>
       <div className="page">
+      <Navbar />
         <Switch>
           <Route exact path="/">
             <Homepage />
@@ -90,7 +91,7 @@ function App() {
           </Route>
         </Switch>
         <HistoryBtn />
-        <Navbar />
+       
       </div>
     </Router>
   );

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Nav";
 import { useParams } from "react-router-dom";
 import RestaurantBox from "../components/RestaurantBox";
 import UserOrder from "../components/UserOrder";
@@ -185,7 +184,6 @@ function Run() {
 
     return (
         <div>
-            <Navbar />
             <RestaurantBox restaurant_name={restaurant_name} address={restaurant_address} run_id={id} />
             { status != "completed" ? <StatusBar status={status} time={time} /> : false}
             <h3><a id="inviteLink"
