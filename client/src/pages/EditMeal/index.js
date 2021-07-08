@@ -1,5 +1,4 @@
 import React from "react";
-import EditMeal from "../../components/EditMeal";
 
 
 class EditMeal extends React.Component {
